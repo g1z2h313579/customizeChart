@@ -11,7 +11,7 @@ class ChartView extends React.Component{
     }
 
     componentDidMount() {
-
+        console.log("this.props",this.props)
         let config = {
             container : this.container.current,
             data : this.props.data,
@@ -32,7 +32,8 @@ class ChartView extends React.Component{
     }
 
     componentWillReceiveProps(nextprops){
-
+        console.log("nextprops",nextprops)
+        console.log("this.container.current",this.container.current)
         let config = {
             container : this.container.current,
             data : nextprops.data,

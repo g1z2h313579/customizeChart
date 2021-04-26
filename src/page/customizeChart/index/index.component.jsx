@@ -114,7 +114,7 @@ class CustomizeChart extends React.Component {
                             chartTypeValue : toJS(state.chartTypeValue),
                             modalChartData : toJS(state.modalChartData),
                             chartDatatype : toJS(state.chartDatatype),
-                            height : 400
+                            height : 300
                         }}
                         
                     />

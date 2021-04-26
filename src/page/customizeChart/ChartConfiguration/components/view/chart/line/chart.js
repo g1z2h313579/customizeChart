@@ -14,8 +14,9 @@ class Chart {
         // console.log('zxczxcz',G2)
         this.chart = new G2.Chart({
             container : this.container,
-            forceFit: true,
-            height: this.height
+            // forceFit: true,
+            height: this.height,
+            width : 316,
         })
         this.chart.source(this.data);
 

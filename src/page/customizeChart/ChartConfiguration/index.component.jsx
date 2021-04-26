@@ -27,6 +27,7 @@ export default class ChartConfiguration extends React.Component {
                         data = {this.props.chartView.modalChartData}
                         chartTypeValue = {this.props.chartView.chartTypeValue}
                         chartDatatype = {this.props.chartView.chartDatatype}
+                        height = {this.props.chartView.height}
                     />
 
                 </div>

@@ -1,6 +1,7 @@
 import { observable, action, toJS } from 'mobx'
 import { dataType, chartType, chartBaseConfig, targetToUrl } from './index.data'
 import { doubleDataMerge, singleData } from './chartDataTools'
+import moment from 'moment'
 
 export default new class State {
     @observable chartConfigList = [
@@ -53,6 +54,7 @@ export default new class State {
     @observable modalVisible = false
     @observable currentItemIndex = 0        //当前卡片索引
     @observable currentChartData = null     //当前卡片数据
+    @observable isChangeChartType = false
     //编辑卡片chart
     @action changeChartType = (item, index) => {
         if (!this.modalVisible && this.isChangePage) {
@@ -60,6 +62,17 @@ export default new class State {
             this.currentItemIndex = index
             this.currentChartData = item
         }
+        // console.log("item",item)
+        this.chartDatatype = item.chartDatatype
+        // this.modalYearMonth.momentDate = moment(item.date)
+        this.modalYearMonth = { year: moment(item.date).format('YYYY'), month: moment(item.date).format('MM'), yearMonth: item.date,momentDate : moment(item.date) }
+        this.queryTargetList(item.date)
+        this.selectTargetList = item.selectTargetList
+        this.dimensionCurrentSelect = item.dimensionCurrentSelect
+        this.cardNameValue = item.cardNameValue
+        this.chartTypeValue = item.chartTypeValue
+        this.modalChartData = item.data
+        this.isChangeChartType = true
     }
     @action handleOk = () => {
         this.modalVisible = false
@@ -73,10 +86,17 @@ export default new class State {
             chartTypeValue: this.chartTypeValue,
             chartBaseConfig: {},
             date: this.modalYearMonth.yearMonth,
-            data: this.modalChartData
+            data: this.modalChartData,
+            selectTargetList : this.selectTargetList,
+            dimensionCurrentSelect : this.dimensionCurrentSelect,
+            cardNameValue : this.cardNameValue
         }
-        console.log("ttttt",t)
-        this.chartConfigList.splice(this.chartConfigList.length - 2, 0, t)
+        // console.log("ttttt",t)
+        if(this.isChangeChartType){
+            this.chartConfigList[this.currentItemIndex] = t
+        }else {
+            this.chartConfigList.splice(this.chartConfigList.length - 1, 0, t)
+        }
     }
 
     @action initModalData = () => {
@@ -92,6 +112,7 @@ export default new class State {
         this.selectTargetList = ['']
         this.dimensionCurrentSelect = ''
         this.cardNameValue = ''
+        this.isChangeChartType = false
     }
     @action handleCancel = () => {
         this.modalVisible = false
@@ -165,7 +186,9 @@ export default new class State {
         if (this.modalChartDataList.length === 1) {
             let t = singleData(this.modalChartDataList[0], toJS(this.targetNameList))
             this.modalChartData = t.map(v => {
-                v.name = v.name + '月'
+                if(!isNaN(v.name)){
+                    v.name = v.name + '月'
+                }
                 return v
             })
             this.chartDatatype = dataType.singleType
@@ -174,7 +197,9 @@ export default new class State {
             this.chartDatatype = dataType.multipleType
             let t = doubleDataMerge(toJS(this.modalChartDataList), toJS(this.targetNameList))
             this.modalChartData = t.map(v => {
-                v.name.includes('月') ? null : v.name = v.name + '月'
+                if(!isNaN(v.name)){
+                    v.name.includes('月') ? null : v.name = v.name + '月'
+                }
                 return v
             })
         }
