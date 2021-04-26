@@ -1,0 +1,60 @@
+.customizeChart{
+    padding: 20px;
+    .changeShowType{
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .viewPort{
+        display: flex;
+        flex-wrap: wrap;
+        .chartItemWarp{
+            width: 30%;
+            border: 1px dashed red;
+            margin-right: 6px;
+            height: 380px;
+            position: relative;
+            margin-bottom: 6px;
+            .deleteItem{
+                position: absolute;
+                right: -6px;
+                top: -6px;
+                border-radius: 50%;
+                background: grey;
+                color: #fff;
+                text-align: center;
+                width: 30px;
+                height: 30px;
+                line-height: 28px;
+                font-size: 20px;
+                cursor: pointer;
+                z-index: 9999;
+            }
+        }
+    }
+    .shake {
+        animation-name: shake;
+        animation-duration: 0.3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    .mask::after{
+        content: '';
+        background: rgba(0,0,0,0);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;   
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0.3deg);
+    }
+    100% {
+        transform: rotate(-0.3deg);
+    }
+}

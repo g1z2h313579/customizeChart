@@ -1,0 +1,19 @@
+{
+    "dimensionReflect" : {
+        "name" : "月份"
+    },
+    "data" : [
+        {"name" : 1, "value" : 3 },
+        {"name" : 2, "value" : 5},
+        {"name" : 3, "value" : 10 },
+        {"name" : 4, "value" : 7},
+        {"name" : 5, "value" : 9},
+        {"name" : 6, "value" : 5 },
+        {"name" : 7, "value" : 23},
+        {"name" : 8, "value" : 55},
+        {"name" : 9, "value" : 47},
+        {"name" : 10, "value" : 32},
+        {"name" : 11, "value" : 12},
+        {"name" : 12, "value" : 12}
+    ]
+}

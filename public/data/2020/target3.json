@@ -1,0 +1,13 @@
+{
+    "dimensionReflect" : {
+        "name" : "月份"
+    },
+    "data" : [
+        {"name" : "项目1", "value" : 123},
+        {"name" : "项目2", "value" : 456},
+        {"name" : "项目3", "value" : 234},
+        {"name" : "项目4", "value" : 345},
+        {"name" : "项目5", "value" : 456},
+        {"name" : "项目6", "value" : 567}
+    ]
+}

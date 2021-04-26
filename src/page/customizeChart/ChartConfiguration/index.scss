@@ -1,0 +1,56 @@
+.configModal{
+    display: flex;
+    >div{
+        flex-grow: 1;
+        border-right: 1px solid grey;
+        padding: 20px;
+        width: 30%;
+        // height: 300px;
+    }
+    >div:last-child{
+        border-right: none;
+    }
+    .dataConfig{
+        .time{
+            margin-bottom: 6px;
+        }
+        .blockClass {
+            border: 1px skyblue solid;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 10px;
+            .title{
+                font-size: 14px;
+                font-weight: bold;
+                margin-right: 10px;
+                
+            }
+        }
+        .targetList{
+            
+            
+            .add{
+                width: 20px;
+                height: 20px;
+                border: 1px solid sandybrown;
+                color: sandybrown;
+                text-align: center;
+                line-height: 18px;
+                border-radius: 6px;
+                cursor: pointer;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+            .selectItem{
+                margin-bottom: 6px;
+                .decrease{
+                    font-size: 18px;
+                    cursor: pointer;
+                    margin-left: 20px;
+                }
+            }
+        }
+
+    
+    }
+}

@@ -1,0 +1,6 @@
+[
+    {"name" : "月份指标1", "value" : "指标1", "dimension" : "月份"},
+    {"name" : "月份指标2", "value" : "指标2", "dimension" : "月份"},
+    {"name" : "项目指标3", "value" : "指标3", "dimension" : "项目"},
+    {"name" : "年份指标4", "value" : "指标4", "dimension" : "年份"}
+]
