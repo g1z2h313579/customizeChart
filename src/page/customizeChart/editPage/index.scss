@@ -26,11 +26,22 @@
 
     .pageView{
         height: 100%;
-        display: flex;
         >div{
-            flex-grow: 1;
-            border: 1px solid firebrick;
             height: 100%;
+        }
+        .double{
+            display: flex;
+            >div{
+                width: 50%;
+                border: 1px solid saddlebrown;
+            }
+        }
+        .tri{
+            display: flex;
+            >div{
+                width: 33%;
+                border: 1px solid saddlebrown;
+            }
         }
     }
 }

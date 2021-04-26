@@ -252,6 +252,13 @@ export default new class State {
     @observable isEditPage = false
     @action editPage = () => {
         this.isEditPage = true
+        this.onChange(false)
+        this.pageSelectList = this.chartConfigList.map(v => {
+            v.label = v.cardNameValue
+            v.value = v.cardNameValue
+            return v
+        })
+        
     }
 
     pageMode = [
@@ -271,6 +278,29 @@ export default new class State {
 
     @action backToCardPage = () => {
         this.isEditPage = false
+    }
+
+    @observable pageSelectList = []
+    @action pageSelectOnChnage = (value, index) => {
+        let t = index.split('-')
+        let modeType = t[0]
+        let pageSelect = t[1]
+        this.pageData[modeType].selectList[pageSelect] = value
+        this.pageData[modeType].isCheckChart[pageSelect] = true
+        this.pageData[modeType].data[pageSelect] = this.pageSelectList.filter(v => v.value === value)[0]
+    }
+
+    @observable pageData = {
+        double : {
+            selectList : [],
+            isCheckChart : [false, false],
+            data : []
+        },
+        tri : {
+            selectList : [],
+            isCheckChart : [false, false],
+            data : []
+        }
     }
 }
 

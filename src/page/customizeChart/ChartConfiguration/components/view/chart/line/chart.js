@@ -6,6 +6,7 @@ class Chart {
         this.data = props.data
         this.chartDatatype = props.chartDatatype
         this.height = props.height
+        this.width = props.width || 316
         this.init();
     }
 
@@ -15,8 +16,9 @@ class Chart {
         this.chart = new G2.Chart({
             container : this.container,
             // forceFit: true,
+            padding : 60,
             height: this.height,
-            width : 316,
+            width : this.width,
         })
         this.chart.source(this.data);
 
@@ -30,7 +32,7 @@ class Chart {
     }
 
 
-    changeData(data, chartDatatype,height) {
+    changeData(data, chartDatatype,height,width = 316) {
         if(chartDatatype === dataType.multipleType){
             this.geom.color('type')
                     
@@ -38,6 +40,7 @@ class Chart {
             this.geom.color(false)
                     
         }
+        this.chart.changeWidth(width)
         this.chart.changeHeight(height)
         this.chart.changeData(data)
     }

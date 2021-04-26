@@ -11,12 +11,13 @@ class ChartView extends React.Component{
     }
 
     componentDidMount() {
-        console.log("this.props",this.props)
+        // console.log("this.props",this.props)
         let config = {
             container : this.container.current,
             data : this.props.data,
             chartDatatype : this.props.chartDatatype,
-            height : this.props.height
+            height : this.props.height,
+            width : this.props.width
         };
         switch(chartType[this.props.chartTypeValue]){
             case 'interval':
@@ -32,13 +33,14 @@ class ChartView extends React.Component{
     }
 
     componentWillReceiveProps(nextprops){
-        console.log("nextprops",nextprops)
-        console.log("this.container.current",this.container.current)
+        // console.log("nextprops",nextprops)
+        // console.log("this.container.current",this.container.current)
         let config = {
             container : this.container.current,
             data : nextprops.data,
             chartDatatype : nextprops.chartDatatype,
-            height : nextprops.height
+            height : nextprops.height,
+            width : nextprops.width
         };
         if(this.props.chartTypeValue != nextprops.chartTypeValue){
             this.chart ? this.chart.chart.destroy() : this.chart = null
@@ -53,7 +55,7 @@ class ChartView extends React.Component{
                     this.chart = null
             }
         }else if(JSON.stringify(this.props.data) != JSON.stringify(nextprops.data)){
-            this.chart ? this.chart.changeData(nextprops.data,nextprops.chartDatatype, nextprops.height) : this.chart = null
+            this.chart ? this.chart.changeData(nextprops.data,nextprops.chartDatatype, nextprops.height, nextprops.width) : this.chart = null
         }
     }
 

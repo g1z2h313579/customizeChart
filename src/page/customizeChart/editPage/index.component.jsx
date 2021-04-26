@@ -1,5 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react'
+import { toJS } from 'mobx'
 import state from '../index/index.state'
 import PageView from './components/pageView/index.component'
 import './index.scss'
@@ -24,7 +25,11 @@ export default observer(() => {
             </div>
             <PageView
                 mode = {state.currentPageMode}
-
+                pageSelectOnChnage = {state.pageSelectOnChnage}
+                pageSelectList = {toJS(state.pageSelectList)}
+                pageData = {toJS(state.pageData)}
+                height = {700}
+                width = {600}
             />
         </div>
     )

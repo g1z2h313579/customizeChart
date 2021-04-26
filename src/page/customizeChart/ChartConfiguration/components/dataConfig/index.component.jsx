@@ -23,7 +23,6 @@ export default (props) => {
                                     targetList={props.targetList}
                                     currentSelectValue={val}
                                     index={index}
-
                                 />
                                 <span className = 'decrease' onClick = { () => {props.decreaseSelect(index)} }>
                                     <CloseCircleOutlined />

@@ -6,6 +6,7 @@ class Chart {
         this.data = props.data
         this.chartDatatype = props.chartDatatype
         this.height = props.height
+        this.width = props.width || 316
         this.init();
     }
 
@@ -14,8 +15,9 @@ class Chart {
 
         this.chart = new G2.Chart({
             container : this.container,
-            width : 316,
+            width : this.width,
             // forceFit: true,
+            padding : 60,
             height: this.height
         })
         this.chart.source(this.data);
@@ -37,7 +39,7 @@ class Chart {
     }
 
 
-    changeData(data, chartDatatype, height) {
+    changeData(data, chartDatatype, height, width = 316) {
         if(chartDatatype === dataType.multipleType){
             this.geom.adjust([{
                         type: 'dodge',
@@ -48,7 +50,7 @@ class Chart {
             this.geom.adjust(false);
         }
         this.chart.changeHeight(height)
-
+        this.chart.changeWidth(width)
         this.chart.changeData(data)
     }
 }
