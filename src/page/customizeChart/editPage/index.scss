@@ -1,0 +1,36 @@
+.editPage{
+    height : 100%;
+    .editModewrap{
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        .editModeItem{
+            width : 100px;
+            height: 100%;
+            text-align: center;
+            line-height: 28px;
+            border: 1px solid salmon;
+            border-radius: 4px;
+            color: #000000;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        .editModeItem:hover{
+            background: salmon;
+        }
+        .action{
+            background: salmon;
+        }
+    }
+
+    .pageView{
+        height: 100%;
+        display: flex;
+        >div{
+            flex-grow: 1;
+            border: 1px solid firebrick;
+            height: 100%;
+        }
+    }
+}

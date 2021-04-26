@@ -4,29 +4,7 @@ import { doubleDataMerge, singleData } from './chartDataTools'
 import moment from 'moment'
 
 export default new class State {
-    @observable chartConfigList = [
-        {
-            chartDatatype: 'single',
-            chartTypeValue: 'interval',
-            chartBaseConfig: {},
-            date: '2021-02',
-            data: [
-                { "name": 1, "value": 11, "type" : '指标1' },
-                { "name": 2, "value": 32, "type" : '指标1' },
-                { "name": 3, "value": 53, "type" : '指标1' },
-                { "name": 4, "value": 70, "type" : '指标1' },
-                { "name": 5, "value": 9, "type" : '指标1' },
-                { "name": 6, "value": 11, "type" : '指标1' },
-                { "name": 7, "value": 1, "type" : '指标1' },
-                { "name": 8, "value": 15, "type" : '指标1' },
-                { "name": 9, "value": 4, "type" : '指标1' },
-                { "name": 10, "value": 100, "type" : '指标1' },
-                { "name": 11, "value": 12, "type" : '指标1' },
-                { "name": 12, "value": 12, "type" : '指标1' }
-            ]
-        }
-
-    ]
+    @observable chartConfigList = []
     emptyData = {
         dataType: null,
         chartType: null,
@@ -268,6 +246,32 @@ export default new class State {
         { value: 'line', label: '折线图' },
         { value: 'doubleLine', label: '双折线图' },
     ]
+
+
+    //-------------------页面逻辑---------------------
+    @observable isEditPage = false
+    @action editPage = () => {
+        this.isEditPage = true
+    }
+
+    pageMode = [
+        {
+            label : '两等分',
+            value : 'double'
+        },
+        {
+            label : '三等分',
+            value : 'tri'
+        }
+    ]
+    @observable currentPageMode = ''
+    @action choosePageMode = (pageMode) => {
+        this.currentPageMode = pageMode
+    }
+
+    @action backToCardPage = () => {
+        this.isEditPage = false
+    }
 }
 
 
