@@ -9,8 +9,8 @@ export const dataType = {
 export const chartType = {
     interval: 'interval',                                      //基础柱状图
     line: 'line',                                              //折线图
-    groupInterval : 'interval',                                //分组柱状图
-    doubleLine : 'line',                                       //双折线图
+    groupInterval: 'interval',                                //分组柱状图
+    doubleLine: 'line',                                       //双折线图
     lineInterval: 'lineInterval',                              //折线柱状图
     coordTransposeInterval: 'coordTransposeInterval',          //条形图
     intervalStack: 'intervalStack',                            //基础饼图
@@ -19,7 +19,22 @@ export const chartType = {
     multipleLineArea: 'multipleLineArea'                       //堆叠线面图
 }
 
+export const chartSelctList = [
+    { value: 'interval', label: '柱状图' },
+    { value: 'line', label: '折线图' },
+    { value: 'groupInterval', label: '分组柱状图' },
+    { value: 'doubleLine', label: '双折线图' },
+]
 
+export const chartSelectList_singleData = [
+    { value: 'interval', label: '柱状图' },
+    { value: 'line', label: '折线图' },
+]
+
+export const chartSelectList_multipleData = [
+    { value: 'groupInterval', label: '分组柱状图' },
+    { value: 'doubleLine', label: '双折线图' },
+]
 
 
 export const chartBaseConfig = {

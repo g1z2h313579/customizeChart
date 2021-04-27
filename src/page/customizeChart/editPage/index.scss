@@ -5,6 +5,7 @@
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
+        position: relative;
         .editModeItem{
             width : 100px;
             height: 100%;
@@ -22,10 +23,49 @@
         .action{
             background: salmon;
         }
+        .back{
+            margin-left: 40px;
+        }
+        .pageName{
+            position: absolute;
+            top: 0px;
+            left: 20px;
+            display: flex;
+            .title{
+                display: inline-block;
+                width: 100px;
+                margin-right: 10px;
+                height: 20px;
+                line-height: 28px;
+            }
+        }
+        .yesOrNo{
+            position: absolute;
+            top: 6px;
+            right: 100px;
+            >span{
+                border: 1px solid tomato;
+                margin-right: 10px;
+                cursor: pointer;
+                display: inline-block;
+                width: 50px;
+                height: 20px;
+                border-radius: 4px;
+                text-align: center;
+                line-height: 18px;
+            }
+            >span:hover{
+                background: tomato;
+                color: #fff;
+            }
+        }
     }
 
     .pageView{
         height: 100%;
+        .editAgain{
+            cursor: pointer;
+        }
         >div{
             height: 100%;
         }

@@ -9,6 +9,7 @@ import zhCN from 'antd/lib/locale/zh_CN';
 import 'antd/dist/antd.css'
 
 const history = createBrowserHistory()
+window.appHistory = history
 
 ReactDOM.render(
     <BrowserRouter>

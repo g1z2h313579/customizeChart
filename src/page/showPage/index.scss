@@ -1,0 +1,46 @@
+.showPage{
+    display: flex;
+    height: 97%;
+    .menuList{
+        width: 10%;
+        border: 1px solid salmon;
+        padding: 20px;
+        .backToAddPage{
+            border: 1px solid darkgoldenrod;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .backToAddPage:hover{
+            background: darkgoldenrod;
+        }
+        ul{
+            li{
+                cursor: pointer;
+                margin-bottom: 4px;
+                font-size: 18px;
+            }
+        }
+    }
+    .viewPort{
+        width: 90%;
+        border: 1px solid teal;
+        .viewPortWrap{
+            height: 100%;
+            
+            .double{
+                display: flex;
+                >div{
+                    width: 50%;
+                }
+            }
+            .tri{
+                display: flex;
+                >div{
+                    width: 33%;
+                }
+            }
+            
+        }
+    }
+}

@@ -18,6 +18,12 @@ class CustomizeChart extends React.Component {
         
     }
 
+    componentWillMount() {
+        if(window.location.pathname === "/customizeChart?isEditPage=true"){
+            state.editPage(true)
+        }
+    }
+
     componentDidMount() {
         
     }
@@ -31,7 +37,7 @@ class CustomizeChart extends React.Component {
                     !state.isEditPage &&
                     <>
                     <div className='changeShowType'>
-                        <span onClick={() => { state.editPage() }} style = {{cursor : 'pointer', marginLeft : "40px"}}>编辑页面</span>
+                        <span onClick={() => { state.editPage(true) }} style = {{cursor : 'pointer', marginLeft : "40px"}}>编辑页面</span>
                         <span>编辑卡片</span><Switch checked={state.isChangePage} onChange={state.onChange} />
                     </div>
                     <div className='viewPort'>

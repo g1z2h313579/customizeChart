@@ -1,6 +1,7 @@
 import { observable, action, toJS } from 'mobx'
-import { dataType, chartType, chartBaseConfig, targetToUrl } from './index.data'
+import { dataType, chartType, chartBaseConfig, targetToUrl,chartSelctList,chartSelectList_singleData,chartSelectList_multipleData } from './index.data'
 import { doubleDataMerge, singleData } from './chartDataTools'
+import pageState from './../../showPage/index.state'
 import moment from 'moment'
 
 export default new class State {
@@ -43,7 +44,7 @@ export default new class State {
         // console.log("item",item)
         this.chartDatatype = item.chartDatatype
         // this.modalYearMonth.momentDate = moment(item.date)
-        this.modalYearMonth = { year: moment(item.date).format('YYYY'), month: moment(item.date).format('MM'), yearMonth: item.date,momentDate : moment(item.date) }
+        this.modalYearMonth = { year: moment(item.date).format('YYYY'), month: moment(item.date).format('MM'), yearMonth: item.date, momentDate: moment(item.date) }
         this.queryTargetList(item.date)
         this.selectTargetList = item.selectTargetList
         this.dimensionCurrentSelect = item.dimensionCurrentSelect
@@ -65,14 +66,14 @@ export default new class State {
             chartBaseConfig: {},
             date: this.modalYearMonth.yearMonth,
             data: this.modalChartData,
-            selectTargetList : this.selectTargetList,
-            dimensionCurrentSelect : this.dimensionCurrentSelect,
-            cardNameValue : this.cardNameValue
+            selectTargetList: this.selectTargetList,
+            dimensionCurrentSelect: this.dimensionCurrentSelect,
+            cardNameValue: this.cardNameValue
         }
         // console.log("ttttt",t)
-        if(this.isChangeChartType){
+        if (this.isChangeChartType) {
             this.chartConfigList[this.currentItemIndex] = t
-        }else {
+        } else {
             this.chartConfigList.splice(this.chartConfigList.length - 1, 0, t)
         }
     }
@@ -80,12 +81,12 @@ export default new class State {
     @action initModalData = () => {
         this.chartDatatype = ''
         this.chartTypeValue = ''
-        this.modalYearMonth = { year: '', month: '', yearMonth: '',momentDate : null }
+        this.modalYearMonth = { year: '', month: '', yearMonth: '', momentDate: null }
         this.modalChartData = []
         this.targetList_origin = []
         this.targetList = []
         this.currentDimension = ''
-        this.targetNameList = [] 
+        this.targetNameList = []
         this.modalChartDataList = []
         this.selectTargetList = ['']
         this.dimensionCurrentSelect = ''
@@ -106,7 +107,7 @@ export default new class State {
     @action modalDateChange = (date, dateString) => {
         // console.log('date, dateString',date, dateString)
         let t = dateString.split('-')
-        this.modalYearMonth = { year: t[0], month: t[1], yearMonth: dateString, momentDate : date }
+        this.modalYearMonth = { year: t[0], month: t[1], yearMonth: dateString, momentDate: date }
         this.queryTargetList(dateString)
     }
     //请求指标
@@ -142,6 +143,11 @@ export default new class State {
         this.currentDimension = t[0].dimension
         this.targetNameList.push(t[0].label)
         this.dimensionCurrentSelect = this.currentDimension
+        if(this.selectTargetList.length === 1){
+            this.chartTypeList = chartSelectList_singleData
+        }else {
+            this.chartTypeList = chartSelectList_multipleData
+        }
         fetch(`/data/${this.modalYearMonth.year}/${targetToUrl[value]}`)
             .then(r => r.json())
             .then(res => {
@@ -164,7 +170,7 @@ export default new class State {
         if (this.modalChartDataList.length === 1) {
             let t = singleData(this.modalChartDataList[0], toJS(this.targetNameList))
             this.modalChartData = t.map(v => {
-                if(!isNaN(v.name)){
+                if (!isNaN(v.name)) {
                     v.name = v.name + '月'
                 }
                 return v
@@ -175,7 +181,7 @@ export default new class State {
             this.chartDatatype = dataType.multipleType
             let t = doubleDataMerge(toJS(this.modalChartDataList), toJS(this.targetNameList))
             this.modalChartData = t.map(v => {
-                if(!isNaN(v.name)){
+                if (!isNaN(v.name)) {
                     v.name.includes('月') ? null : v.name = v.name + '月'
                 }
                 return v
@@ -240,35 +246,30 @@ export default new class State {
     //图形形式
     @observable chartTypeValue = ''
 
-    @observable chartTypeList = [
-        { value: 'interval', label: '柱状图' },
-        { value: 'groupInterval', label: '分组柱状图' },
-        { value: 'line', label: '折线图' },
-        { value: 'doubleLine', label: '双折线图' },
-    ]
+    @observable chartTypeList = chartSelctList
 
 
     //-------------------页面逻辑---------------------
     @observable isEditPage = false
-    @action editPage = () => {
-        this.isEditPage = true
+    @action editPage = (bl) => {
+        this.isEditPage = bl
         this.onChange(false)
         this.pageSelectList = this.chartConfigList.map(v => {
             v.label = v.cardNameValue
             v.value = v.cardNameValue
             return v
         })
-        
+
     }
 
     pageMode = [
         {
-            label : '两等分',
-            value : 'double'
+            label: '两等分',
+            value: 'double'
         },
         {
-            label : '三等分',
-            value : 'tri'
+            label: '三等分',
+            value: 'tri'
         }
     ]
     @observable currentPageMode = ''
@@ -291,15 +292,52 @@ export default new class State {
     }
 
     @observable pageData = {
-        double : {
-            selectList : [],
-            isCheckChart : [false, false],
-            data : []
+        double: {
+            selectList: [],
+            isCheckChart: [false, false],
+            data: []
         },
-        tri : {
-            selectList : [],
-            isCheckChart : [false, false],
-            data : []
+        tri: {
+            selectList: [],
+            isCheckChart: [false, false],
+            data: []
+        }
+    }
+
+
+    @action editAgain = (type, index) => {
+        this.pageData[type].isCheckChart[index] = false
+    }
+
+    @observable pageNameValue = ''
+    @action pageNameOnChange = (e) => {
+        e.persist()
+        this.pageNameValue = e.target.value
+    }
+
+    @action confirmPage = (props) => {
+        pageState.pageData.push({
+            type: this.currentPageMode,
+            pageName: this.pageNameValue,
+            data: this.pageData[this.currentPageMode].data
+        })
+
+        props.history.push('/showPage')
+    }
+    @action cancelPage = () => {
+        this.pageNameValue = ''
+        this.currentPageMode = ''
+        this.pageData = {
+            double: {
+                selectList: [],
+                isCheckChart: [false, false],
+                data: []
+            },
+            tri: {
+                selectList: [],
+                isCheckChart: [false, false],
+                data: []
+            }
         }
     }
 }

@@ -14,5 +14,12 @@ export const menuList = [
         id : '/customizeChart',
         path : '/customizeChart'
     },
-   
+    {
+        name : 'showPage',
+        icon : <PieChartOutlined/>,
+        children : null,
+        id : '/showPage',
+        path : '/showPage'
+    },
+    
 ]
