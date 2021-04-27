@@ -1,11 +1,13 @@
 import React from 'react'
 import { Select } from 'antd';
 const { Option } = Select;
+import './index.scss'
 export default (props) => {
     return (
         <Select
+            className='select-style'
             showSearch
-            style={{ width: 200 }}
+            style={props.style}
             onChange={(value) => {props.targetListChange(value, props.index)}}
             value = {props.currentSelectValue}
             disabled = {props.disabled}

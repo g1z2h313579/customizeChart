@@ -1,21 +1,27 @@
 import React from 'react';
 import ChartItem from '../chart/index.component'
 import { observer } from 'mobx-react'
-import { Modal } from 'antd';
+import { Button, Modal } from 'antd';
 import { toJS } from 'mobx'
 import state from './index.state'
 import { Switch } from 'antd'
 import moment from 'moment'
 import ChartConfiguration from '../ChartConfiguration/index.component'
 import EditPage from '../editPage/index.component'
-
+import editPagePng from '../../../assets/edit-page.png'
+import editCardPng from '../../../assets/edit-card.png'
+import settingPng from '../../../assets/setting.png'
+import deletePng from '../../../assets/delete.png'
+import {
+    PlusCircleFilled,
+} from '@ant-design/icons'
 import './index.scss'
 
 @observer
 class CustomizeChart extends React.Component {
     constructor(props) {
         super(props)
-        
+
     }
 
     componentWillMount() {
@@ -25,7 +31,7 @@ class CustomizeChart extends React.Component {
     }
 
     componentDidMount() {
-        
+
     }
 
 
@@ -37,8 +43,8 @@ class CustomizeChart extends React.Component {
                     !state.isEditPage &&
                     <>
                     <div className='changeShowType'>
-                        <span onClick={() => { state.editPage(true) }} style = {{cursor : 'pointer', marginLeft : "40px"}}>编辑页面</span>
-                        <span>编辑卡片</span><Switch checked={state.isChangePage} onChange={state.onChange} />
+                        <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editPagePng} alt="" />} onClick={() => { state.editPage(true) }} className='editPageBtn' type="primary">编辑页面</Button>
+                        <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editCardPng} alt="" />} onClick={() => {state.onChange()}} className='editCardBtn' type="primary">编辑卡片</Button>
                     </div>
                     <div className='viewPort'>
                         {
@@ -50,7 +56,9 @@ class CustomizeChart extends React.Component {
                                             key={i} ref={this.chartItemWarp}
                                             onClick={() => { state.addChart() }}
                                         >
-                                            添加卡片
+                                            <Button className='addCardBtn' type="primary" shape="round" icon={<PlusCircleFilled />}>
+                                                添加卡片
+                                            </Button>
                                         </div>
                                     )
                                 } else {
@@ -62,7 +70,7 @@ class CustomizeChart extends React.Component {
                                         >
                                             {
                                                 state.isChangePage &&
-                                                <div className='deleteItem' onClick={(e) => { state.deleteChartItem(v, i, e) }}> x </div>
+                                                <img onClick={(e) => { state.deleteChartItem(v, i, e) }} className='deleteItem' src={deletePng} alt="" />
                                             }
                                             <ChartItem
                                                 chartView={{
@@ -84,11 +92,21 @@ class CustomizeChart extends React.Component {
                     </div>
 
                     <Modal
-                        title="图形配置"
+                        className='chartConfig'
+                        title={<div><img style={ {width: '15px', height: '15px', marginRight: '5px', marginBottom: '2px'} } src={settingPng} alt=""/><span style={ {marginLeft: '5px'} }>图形配置</span></div>}
+                        closable={false}
                         visible={state.modalVisible}
-                        onOk={state.handleOk}
-                        onCancel={state.handleCancel}
                         width={'80%'}
+                        footer={
+                            [
+                                <Button className='cancel' key="back" size='small' onClick={state.handleCancel}>
+                                    取消
+                                </Button>,
+                                <Button className='submit' key='submit' size='small' type="primary" onClick={state.handleOk}>
+                                    确定
+                                </Button>
+                            ]
+                        }
                     >
                         <ChartConfiguration
                             common={{

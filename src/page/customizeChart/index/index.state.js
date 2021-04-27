@@ -15,13 +15,13 @@ export default new class State {
     //编辑页面开关
     @observable isChangePage = false
     //开关回调
-    @action onChange = (checked) => {
-        if (checked) {
+    @action onChange = () => {
+        this.isChangePage = !this.isChangePage
+        if (this.isChangePage) {
             this.chartConfigList.push(this.emptyData)
         } else {
             this.chartConfigList.pop()
         }
-        this.isChangePage = checked;
     }
 
     //删除数据回调

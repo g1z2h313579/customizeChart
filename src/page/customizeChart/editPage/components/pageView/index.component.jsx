@@ -1,6 +1,7 @@
 import React from 'react'
 import SelectComponent from '../../../ChartConfiguration/components/components/selectComponent/index.component'
 import ChartView from '../../../ChartConfiguration/components/view/chartView'
+import './index.scss'
 export default (props) => {
 
 
@@ -20,13 +21,19 @@ export default (props) => {
                         />
                         </>
                         :
-                        <SelectComponent
-                            targetListChange={props.pageSelectOnChnage}
-                            targetList={props.pageSelectList}
-                            currentSelectValue={props.pageData[type].selectList[index]}
-                            index={`${type}-${index}`}
-                        />
+                        <>
+                            <span className='card-name'>卡片名称：</span>
+                            <SelectComponent
+                                style={ {width: '60%'} }
+                                targetListChange={props.pageSelectOnChnage}
+                                targetList={props.pageSelectList}
+                                currentSelectValue={props.pageData[type].selectList[index]}
+                                index={`${type}-${index}`}
+                            />
+                            <div className='content'>
 
+                            </div>
+                        </>
                 }
             </>
         )
@@ -55,7 +62,7 @@ export default (props) => {
                             {showSelectOrChart('tri', 0, 400, 700)}
                         </div>
                         <div>
-                            {showSelectOrChart('tri', 1, 400, 700)} 
+                            {showSelectOrChart('tri', 1, 400, 700)}
                         </div>
                         <div>
                             {showSelectOrChart('tri', 2, 400, 700)}

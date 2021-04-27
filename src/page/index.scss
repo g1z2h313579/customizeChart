@@ -1,6 +1,6 @@
 .contentwrap{
-    padding: 20px;
-    .bodyContainer{
-        height: 100%;
-    }
+    background: url('../assets/background.png') no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    overflow-y: auto;
 }

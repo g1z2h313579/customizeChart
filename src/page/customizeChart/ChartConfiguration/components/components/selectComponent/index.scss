@@ -1,0 +1,18 @@
+.select-style {
+  .ant-select-arrow {
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 28px;
+    height: 32px;
+    line-height: 32px;
+    background-image: linear-gradient(180deg, #00D5FF 0%, #188BF7 100%);
+  }
+
+  .ant-select-suffix {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

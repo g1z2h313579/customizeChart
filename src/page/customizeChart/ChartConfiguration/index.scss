@@ -3,7 +3,7 @@
     >div{
         flex-grow: 1;
         width: 45%;
-        border-right: 1px solid grey;
+        border-right: 1px solid #125194;
         padding: 20px;
         width: 30%;
         // height: 300px;
@@ -14,36 +14,60 @@
     .dataConfig{
         .time{
             margin-bottom: 6px;
+
+            .ant-picker {
+                border: none;
+                background-color: #13417F;
+                padding: 0;
+
+                .ant-picker-input > input {
+                    padding: 5px;
+                    color: #fff;
+
+                    &::-webkit-input-placeholder {
+                        color: #fff;
+                    }
+                }
+
+                .ant-picker-suffix {
+                    color: #000;
+                    background-image: linear-gradient(180deg, #00D5FF 0%, #188BF7 100%);
+
+                    .anticon {
+                        padding: 7px;
+                    }
+                }
+            }
         }
+
         .blockClass {
-            border: 1px skyblue solid;
+            border: 1px #134682 solid;
             border-radius: 6px;
             padding: 20px;
-            margin-bottom: 10px;
+            margin: 20px 0;
+
             .title{
                 font-size: 14px;
                 font-weight: bold;
                 margin-right: 10px;
-                
+                color: #34C0FB;
+            }
+
+            .ant-select-selector, .ant-input {
+                background-color: #144582;
+                border: none;
+                color: #fff;
             }
         }
         .targetList{
-            
-            
-            .add{
-                width: 20px;
-                height: 20px;
-                border: 1px solid sandybrown;
-                color: sandybrown;
-                text-align: center;
-                line-height: 18px;
-                border-radius: 6px;
-                cursor: pointer;
-                display: inline-block;
-                margin-bottom: 10px;
+            .add {
+                color: #00D5FF;
             }
+
             .selectItem{
                 margin-bottom: 6px;
+                display: flex;
+
                 .decrease{
                     font-size: 18px;
                     cursor: pointer;
@@ -52,6 +76,6 @@
             }
         }
 
-    
+
     }
 }
