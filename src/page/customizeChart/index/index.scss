@@ -1,6 +1,6 @@
 .customizeChart{
     padding: 20px;
-    height: 95%;
+    height: calc( 100% - 100px );
     .changeShowType{
         margin-bottom: 10px;
         display: flex;

@@ -1,6 +1,6 @@
 .showPage{
     display: flex;
-    height: 97%;
+    height: calc( 100% - 100px );
     .menuList{
         width: 10%;
         border: 1px solid salmon;
@@ -19,6 +19,9 @@
                 cursor: pointer;
                 margin-bottom: 4px;
                 font-size: 18px;
+            }
+            .action{
+                color: darkorange;
             }
         }
     }

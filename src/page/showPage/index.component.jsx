@@ -14,8 +14,8 @@ export default withRouter(observer((props) => {
                 <div className = 'backToAddPage' onClick = {() => {props.history.push('/customizeChart?isEditPage=true')}}>配置页面</div>
                 <ul>
                     {
-                        state.pageData.map((v, i) => {
-                            return <li key = {i} onClick = {() => {state.changePageContent(v)}}>{v.pageName}</li>
+                        toJS(state.pageData).map((v, i) => {
+                            return <li key = {i} className = {v.pageName === state.currentPageInfo.pageName ? 'action' : ''} onClick = {() => {state.changePageContent(v)}}>{v.pageName}</li>
                         })
                     }
                 </ul>

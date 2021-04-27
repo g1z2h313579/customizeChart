@@ -316,10 +316,13 @@ export default new class State {
     }
 
     @action confirmPage = (props) => {
+
+        console.log("this.pageData[this.currentPageMode]",toJS(this.pageData[this.currentPageMode]))
+
         pageState.pageData.push({
             type: this.currentPageMode,
             pageName: this.pageNameValue,
-            data: this.pageData[this.currentPageMode].data
+            data:   JSON.parse(JSON.stringify(this.pageData[this.currentPageMode].data))
         })
 
         props.history.push('/showPage')

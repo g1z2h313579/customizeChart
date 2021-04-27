@@ -8,6 +8,8 @@ export default new class {
         data : []
     }
     @action changePageContent = (data) => {
+        console.log("data",data)
+        console.log("pageData",toJS(this.pageData))
         this.currentPageInfo = {...data}
     }
 }
