@@ -2,7 +2,7 @@ import React from 'react'
 import ChartView from '../../../customizeChart/ChartConfiguration/components/view/chartView'
 
 export default (props) => {
-    // console.log("props", props)
+    console.log("props", props)
     function renderChart(index, height, width) {
         return (
             <ChartView
