@@ -68,7 +68,8 @@ export default new class State {
             data: this.modalChartData,
             selectTargetList: this.selectTargetList,
             dimensionCurrentSelect: this.dimensionCurrentSelect,
-            cardNameValue: this.cardNameValue
+            cardNameValue: this.cardNameValue,
+            targetNameList : this.targetNameList
         }
         // console.log("ttttt",t)
         if (this.isChangeChartType) {
@@ -81,10 +82,10 @@ export default new class State {
     @action initModalData = () => {
         this.chartDatatype = ''
         this.chartTypeValue = ''
-        this.modalYearMonth = { year: '', month: '', yearMonth: '', momentDate: null }
+        // this.modalYearMonth = { year: '', month: '', yearMonth: '', momentDate: null }
         this.modalChartData = []
-        this.targetList_origin = []
-        this.targetList = []
+        // this.targetList_origin = []
+        // this.targetList = []
         this.currentDimension = ''
         this.targetNameList = []
         this.modalChartDataList = []
@@ -103,7 +104,7 @@ export default new class State {
     }
 
     //modal中的时间参数
-    @observable modalYearMonth = { year: '', month: '', yearMonth: '' }
+    @observable modalYearMonth = { year: '', month: '', yearMonth: '',  momentDate: moment() }
     @action modalDateChange = (date, dateString) => {
         // console.log('date, dateString',date, dateString)
         let t = dateString.split('-')
@@ -160,11 +161,16 @@ export default new class State {
     @observable chartDatatype = null        //图形数据形状——多组数据还是单组数据
     //处理指标数据到图形数据——为了节约时间，这里只处理了单指标和双指标，多指标未写
     @action treatTargetDataToChart = (data) => {
+        let dataDate = Object.keys(data.data).filter(v => v === this.modalYearMonth.yearMonth)
+        let tmp = []
+        if(dataDate.length > 0){
+            tmp = data.data[dataDate[0]]
+        }
         if (this.selectTargetList.length === 1) {
             this.modalChartDataList = []
-            this.modalChartDataList.push(data.data)
+            this.modalChartDataList.push(tmp)
         } else {
-            this.modalChartDataList.push(data.data)
+            this.modalChartDataList.push(tmp)
         }
         // console.log("this.modalChartDataList",toJS(this.modalChartDataList))
         if (this.modalChartDataList.length === 1) {

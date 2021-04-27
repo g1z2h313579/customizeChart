@@ -2,12 +2,22 @@
     "dimensionReflect" : {
         "name" : "项目"
     },
-    "data" : [
-        {"name" : "项目1", "value" : 321},
-        {"name" : "项目2", "value" : 432},
-        {"name" : "项目3", "value" : 534},
-        {"name" : "项目4", "value" : 654},
-        {"name" : "项目5", "value" : 765},
-        {"name" : "项目6", "value" : 234}
-    ]
+    "data" : {
+        "2021-03" : [
+            {"name" : "项目1", "value" : 321},
+            {"name" : "项目2", "value" : 432},
+            {"name" : "项目3", "value" : 534},
+            {"name" : "项目4", "value" : 654},
+            {"name" : "项目5", "value" : 765},
+            {"name" : "项目6", "value" : 234}
+        ],
+        "2021-04" : [
+            {"name" : "项目1", "value" : 11},
+            {"name" : "项目2", "value" : 22},
+            {"name" : "项目3", "value" : 33},
+            {"name" : "项目4", "value" : 44},
+            {"name" : "项目5", "value" : 55},
+            {"name" : "项目6", "value" : 66}
+        ]
+    }
 }

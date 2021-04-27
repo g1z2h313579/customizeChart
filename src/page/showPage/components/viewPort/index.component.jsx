@@ -2,7 +2,7 @@ import React from 'react'
 import ChartView from '../../../customizeChart/ChartConfiguration/components/view/chartView'
 
 export default (props) => {
-    console.log("props", props)
+    // console.log("props", props)
     function renderChart(index, height, width) {
         return (
             <ChartView
@@ -23,10 +23,10 @@ export default (props) => {
                 return (
                     <div className = "double">
                         <div>
-                            {renderChart(0, 700, 600)}
+                            {renderChart(0, 500, 500)}
                         </div>
                         <div>
-                            {renderChart(1, 700, 600)}
+                            {renderChart(1, 500, 500)}
                         </div>
                     </div>
                 )
@@ -34,10 +34,10 @@ export default (props) => {
                 return (
                     <div className = 'tri'>
                         <div>
-                            {renderChart(0, 700, 400)}
+                            {renderChart(0, 500, 300)}
                         </div>
                         <div>
-                            {renderChart(1, 700, 400)}
+                            {renderChart(1, 500, 300)}
                         </div>
                         <div>
                             {renderChart(2, 700, 400)}
