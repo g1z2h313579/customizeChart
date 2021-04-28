@@ -21,21 +21,43 @@ const { MonthPicker } = DatePicker;
 class CustomizeChart extends React.Component {
     constructor(props) {
         super(props)
+        this.cardContainer = React.createRef()
+        this.state = {
+            cardHeight : 0,
+            cardWidth : 0
+        }
     }
 
     componentWillMount() {
         if(window.location.pathname === "/customizeChart?isEditPage=true"){
+            // state.cancelPage()
             state.editPage(true)
         }
     }
 
-    componentDidMount() {
+    componentWillUpdate(){
+        // console.log("this.cardContainer",this.cardContainer.current.offsetHeight)
+        // if(this.cardContainer.current){
+        //     this.setState({
+        //         cardHeight : this.cardContainer.current.offsetHeight,
+        //         cardWidth : this.cardContainer.current.offsetWidth
+        //     })
+        // }
+    }
 
+    componentDidMount() {
+        if(this.cardContainer.current && this.cardContainer.current.offsetWidth){
+            this.setState({
+                cardHeight : 350,
+                cardWidth : this.cardContainer.current.offsetWidth * 0.31
+            })
+        }
+        
     }
 
 
     render() {
-        // console.log("toJS(state.chartConfigList)",toJS(state.chartConfigList))
+        
         return (
             <div className='customizeChart'>
                 {
@@ -48,7 +70,7 @@ class CustomizeChart extends React.Component {
                         <MonthPicker onChange={state.modalDateChange} value = {state.date} placeholder="选择年月" />
                         </span>
                     </div>
-                    <div className='viewPort'>
+                    <div className='viewPort' ref = {this.cardContainer}>
                         {
                             toJS(state.chartConfigList).map((v, i, arr) => {
                                 if (i === arr.length - 1 && state.isChangePage) {
@@ -57,6 +79,7 @@ class CustomizeChart extends React.Component {
                                             className={state.isChangePage ? 'chartItemWarp mask' : 'chartItemWarp'}
                                             key={i} ref={this.chartItemWarp}
                                             onClick={() => { state.addChart() }}
+                                            ref = {this.cardContainer2}
                                         >
                                             <Button className='addCardBtn' type="primary" shape="round" icon={<PlusCircleFilled />}>
                                                 添加卡片
@@ -69,6 +92,7 @@ class CustomizeChart extends React.Component {
                                             className={state.isChangePage ? 'chartItemWarp shake mask' : 'chartItemWarp'}
                                             key={i} ref={this.chartItemWarp}
                                             onClick={() => { state.changeChartType(v, i) }}
+                                            ref = {this.cardContainer}
                                         >
                                             {
                                                 state.isChangePage &&
@@ -79,7 +103,8 @@ class CustomizeChart extends React.Component {
                                                     chartTypeValue: v.chartTypeValue,
                                                     modalChartData: v.data,
                                                     chartDatatype: v.chartDatatype,
-                                                    height: 380
+                                                    height: this.state.cardHeight  ,
+                                                    width : this.state.cardWidth 
                                                 }}
 
                                             />
@@ -141,7 +166,6 @@ class CustomizeChart extends React.Component {
                                 chartTypeValue: toJS(state.chartTypeValue),
                                 modalChartData: toJS(state.modalChartData),
                                 chartDatatype: toJS(state.chartDatatype),
-                                height: 300
                             }}
 
                         />

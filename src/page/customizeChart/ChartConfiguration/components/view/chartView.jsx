@@ -57,6 +57,10 @@ class ChartView extends React.Component{
         }else if(JSON.stringify(this.props.data) != JSON.stringify(nextprops.data)){
             this.chart ? this.chart.changeData(nextprops.data,nextprops.chartDatatype, nextprops.height, nextprops.width) : this.chart = null
         }
+        if(this.chart){
+            this.chart.chart.changeWidth(nextprops.width)
+            this.chart.chart.changeHeight(nextprops.height)
+        }
     }
 
     render(){

@@ -17,6 +17,7 @@
             border-radius: 4px;
             text-align: center;
             cursor: pointer;
+            color: rgba(255,255,255,.6);
         }
         .backToAddPage:hover{
             background: darkgoldenrod;
@@ -26,6 +27,7 @@
                 cursor: pointer;
                 margin-bottom: 4px;
                 font-size: 18px;
+                color: rgba(255,255,255,.6);
             }
             .action{
                 color: darkorange;
@@ -40,14 +42,22 @@
 
             .double{
                 display: flex;
+                height: 100%;
                 >div{
                     width: 50%;
+                    >div{
+                        height: 100%;
+                    }
                 }
             }
             .tri{
                 display: flex;
+                height: 100%;
                 >div{
                     width: 33%;
+                    >div{
+                        height: 100%;
+                    }
                 }
             }
 

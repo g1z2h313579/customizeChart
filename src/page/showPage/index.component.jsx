@@ -5,6 +5,7 @@ import state from './index.state'
 import ViewPort from './components/viewPort/index.component'
 import { withRouter } from 'react-router-dom'
 import { DatePicker } from 'antd'
+import customizeChartState from '../customizeChart/index/index.state'
 import './index.scss'
 
 const { MonthPicker } = DatePicker;
@@ -16,7 +17,18 @@ export default withRouter(observer((props) => {
                 <MonthPicker onChange={state.changePageData} value={state.date.momentDate} placeholder="选择年月" />
             </div>
             <div className='menuList'>
-                <div className='backToAddPage' onClick={() => { props.history.push('/customizeChart?isEditPage=true') }}>配置页面</div>
+                <div
+                    className='backToAddPage'
+                    onClick={() => {
+                        props.history.push('/customizeChart?isEditPage=true');
+                        customizeChartState.cancelPage();
+                        state.currentPageInfo = {
+                            type: '',
+                            pageName: '',
+                            data: []
+                        }
+                    }
+                    }>配置页面</div>
                 <ul>
                     {
                         toJS(state.pageData).map((v, i) => {

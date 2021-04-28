@@ -17,7 +17,7 @@ export default new class {
     @observable date = customizeState.modalYearMonth
 
     @action changePageData = async (date, dateString) => {
-        console.log("pageData", toJS(this.pageData))
+        // console.log("pageData", toJS(this.pageData))
         let w = dateString.split('-')
         this.date = { year: w[0], month: w[1], yearMonth: dateString, momentDate: date }
         let selectTargetList = []
@@ -114,13 +114,13 @@ export default new class {
             }
             
         }
-        console.log("tmpData",tmpData)
+        // console.log("tmpData",tmpData)
         this.pageData.map(v => {
             v.data.map((item, index) => {
                 item.data = tmpData[index]
             })
         })
-        console.log("this.pageData11111",toJS(this.pageData))
+        // console.log("this.pageData11111",toJS(this.pageData))
         this.currentPageInfo = this.pageData.filter(v => v.pageName === this.currentPageInfo.pageName)[0]
     }
 }

@@ -25,7 +25,7 @@ const Entry = withRouter((props) => {
                         </H_Context.Provider>
                     </div>
                 </Content>
-                {/*<Foot />*/}
+                <Foot />
             </Layout>
         </Layout>
 

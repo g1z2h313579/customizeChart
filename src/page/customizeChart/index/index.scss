@@ -1,6 +1,6 @@
 .customizeChart{
     padding: 10px 20px;
-
+    height: 100%;
     .changeShowType{
         padding: 15px 0;
         display: flex;
@@ -29,7 +29,7 @@
         .chartItemWarp{
             width: 31%;
             margin: 0 1%;
-            height: 40vh;
+            height: 350px;
             position: relative;
             background-image: linear-gradient(134deg, rgba(39, 61, 137, 0.6) 0%, rgba(32, 53, 122, 0.6) 100%);
             border-radius: 4px;
