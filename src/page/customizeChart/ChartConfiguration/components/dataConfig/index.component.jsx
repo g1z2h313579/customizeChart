@@ -10,7 +10,7 @@ export default (props) => {
     return (
         <>
             <div className='time'>
-                <MonthPicker allowClear={false} onChange={props.modalDateChange} value = {props.date} placeholder="选择年月" />
+                {/* <MonthPicker onChange={props.modalDateChange} value = {props.date} placeholder="选择年月" /> */}
             </div>
             <div className='targetList blockClass'>
                 <span className='title'>选择指标</span>

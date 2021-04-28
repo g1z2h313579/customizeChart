@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 import { Button, Modal } from 'antd';
 import { toJS } from 'mobx'
 import state from './index.state'
-import { Switch } from 'antd'
+import { Switch,DatePicker } from 'antd'
 import moment from 'moment'
 import ChartConfiguration from '../ChartConfiguration/index.component'
 import EditPage from '../editPage/index.component'
@@ -16,12 +16,11 @@ import {
     PlusCircleFilled,
 } from '@ant-design/icons'
 import './index.scss'
-
+const { MonthPicker } = DatePicker;
 @observer
 class CustomizeChart extends React.Component {
     constructor(props) {
         super(props)
-
     }
 
     componentWillMount() {
@@ -45,6 +44,9 @@ class CustomizeChart extends React.Component {
                     <div className='changeShowType'>
                         <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editPagePng} alt="" />} onClick={() => { state.editPage(true) }} className='editPageBtn' type="primary">编辑页面</Button>
                         <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editCardPng} alt="" />} onClick={() => {state.onChange()}} className='editCardBtn' type="primary">编辑卡片</Button>
+                        <span style = {{marginRight : '20px'}}>
+                        <MonthPicker onChange={state.modalDateChange} value = {state.date} placeholder="选择年月" />
+                        </span>
                     </div>
                     <div className='viewPort'>
                         {

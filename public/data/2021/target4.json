@@ -2,12 +2,22 @@
     "dimensionReflect" : {
         "name" : "年份"
     },
-    "data" : [
-        {"name" : "2021年", "value" : 32},
-        {"name" : "2020年", "value" : 43},
-        {"name" : "2019年", "value" : 53},
-        {"name" : "2018年", "value" : 65},
-        {"name" : "2017年", "value" : 76},
-        {"name" : "2016年", "value" : 23}
-    ]
+    "data" : {
+        "2021-03":[
+            {"name" : "2021年", "value" : 32},
+            {"name" : "2020年", "value" : 43},
+            {"name" : "2019年", "value" : 53},
+            {"name" : "2018年", "value" : 65},
+            {"name" : "2017年", "value" : 76},
+            {"name" : "2016年", "value" : 23}
+        ],
+        "2021-04" : [
+            {"name" : "2021年", "value" : 10},
+            {"name" : "2020年", "value" : 11},
+            {"name" : "2019年", "value" : 12},
+            {"name" : "2018年", "value" : 13},
+            {"name" : "2017年", "value" : 14},
+            {"name" : "2016年", "value" : 15}
+        ]
+    }
 }

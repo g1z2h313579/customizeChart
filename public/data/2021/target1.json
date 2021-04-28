@@ -2,18 +2,34 @@
     "dimensionReflect" : {
         "name" : "月份"
     },
-    "data" : [
-        {"name" : 1, "value" : 11 },
-        {"name" : 2, "value" : 32 },
-        {"name" : 3, "value" : 53},
-        {"name" : 4, "value" : 70},
-        {"name" : 5, "value" : 9},
-        {"name" : 6, "value" : 11 },
-        {"name" : 7, "value" : 1},
-        {"name" : 8, "value" : 15},
-        {"name" : 9, "value" : 4},
-        {"name" : 10, "value" : 100},
-        {"name" : 11, "value" : 12},
-        {"name" : 12, "value" : 12}
-    ]
+    "data" : {
+        "2021-03" : [
+            {"name" : 1, "value" : 11 },
+            {"name" : 2, "value" : 32 },
+            {"name" : 3, "value" : 53},
+            {"name" : 4, "value" : 70},
+            {"name" : 5, "value" : 9},
+            {"name" : 6, "value" : 11 },
+            {"name" : 7, "value" : 1},
+            {"name" : 8, "value" : 15},
+            {"name" : 9, "value" : 4},
+            {"name" : 10, "value" : 100},
+            {"name" : 11, "value" : 12},
+            {"name" : 12, "value" : 12}
+        ],
+        "2021-04" : [
+            {"name" : 1, "value" : 11 },
+            {"name" : 2, "value" : 22 },
+            {"name" : 3, "value" : 33},
+            {"name" : 4, "value" : 44},
+            {"name" : 5, "value" : 9},
+            {"name" : 6, "value" : 111 },
+            {"name" : 7, "value" : 13},
+            {"name" : 8, "value" : 90},
+            {"name" : 9, "value" : 4},
+            {"name" : 10, "value" : 2},
+            {"name" : 11, "value" : 50},
+            {"name" : 12, "value" : 12}
+        ]
+    }
 }

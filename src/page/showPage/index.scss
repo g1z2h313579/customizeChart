@@ -1,6 +1,13 @@
 .showPage{
     display: flex;
     height: calc( 100% - 100px );
+    position: relative;
+    padding: 40px;
+    .date{
+        position: absolute;
+        right: 20px;
+        top: 0;
+    }
     .menuList{
         width: 10%;
         border: 1px solid salmon;
