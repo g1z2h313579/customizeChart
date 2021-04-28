@@ -67,8 +67,8 @@ export default new class {
                         data[dataStep[i] - 2].data.data[this.date.yearMonth]
                     ]
                     let q = [
+                        targetNameList[dataStep[i] - 2],
                         targetNameList[dataStep[i] - 1],
-                        targetNameList[dataStep[i] - 2]
                     ]
                     // console.log("ttttttt0000",t)
                     // console.log("qqqqqq0000",q)
@@ -95,8 +95,8 @@ export default new class {
                         data[dataIndex - 1].data.data[this.date.yearMonth]
                     ]
                     let q = [
+                        targetNameList[dataIndex - 1],
                         targetNameList[dataIndex],
-                        targetNameList[dataIndex - 1]
                     ]
                     // console.log("ttttttt",t)
                     // console.log("qqqqqq",q)
@@ -114,13 +114,13 @@ export default new class {
             }
             
         }
-        // console.log("tmpData",tmpData)
+        console.log("tmpData",tmpData)
         this.pageData.map(v => {
             v.data.map((item, index) => {
                 item.data = tmpData[index]
             })
         })
+        console.log("this.pageData11111",toJS(this.pageData))
         this.currentPageInfo = this.pageData.filter(v => v.pageName === this.currentPageInfo.pageName)[0]
-        // console.log("this.pageData11111",toJS(this.pageData))
     }
 }
