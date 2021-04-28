@@ -77,6 +77,7 @@ export default new class State {
         } else {
             this.chartConfigList.splice(this.chartConfigList.length - 1, 0, t)
         }
+        this.targetList = JSON.parse(JSON.stringify(this.targetList_origin))
     }
 
     @action initModalData = () => {
@@ -109,6 +110,7 @@ export default new class State {
         // console.log('date, dateString',date, dateString)
         let t = dateString.split('-')
         this.modalYearMonth = { year: t[0], month: t[1], yearMonth: dateString, momentDate: date }
+        pageState.date = this.modalYearMonth
         this.queryTargetList(dateString)
     }
     //请求指标

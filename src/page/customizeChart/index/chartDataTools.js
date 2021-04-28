@@ -1,8 +1,8 @@
 export const doubleDataMerge = (data,type) => {
     let data1 = data[0] || []
     let data2 = data[1] || []
-    console.log('data',data)
-    console.log("type",type)
+    // console.log('data',data)
+    // console.log("type",type)
     let t = []
     data1.map((v, i) => {
         t.push({

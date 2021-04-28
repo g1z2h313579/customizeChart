@@ -4,32 +4,32 @@
     },
     "data" : {
         "2021-03" : [
-            {"name" : 1, "value" : 3 },
-            {"name" : 2, "value" : 5},
-            {"name" : 3, "value" : 123 },
-            {"name" : 4, "value" : 7},
-            {"name" : 5, "value" : 9},
-            {"name" : 6, "value" : 50 },
-            {"name" : 7, "value" : 2},
-            {"name" : 8, "value" : 55},
-            {"name" : 9, "value" : 473},
-            {"name" : 10, "value" : 32},
-            {"name" : 11, "value" : 2},
-            {"name" : 12, "value" : 124}
+            {"name" : "1月", "value" : 3 },
+            {"name" : "2月", "value" : 5},
+            {"name" : "3月", "value" : 123 },
+            {"name" : "4月", "value" : 7},
+            {"name" : "5月", "value" : 9},
+            {"name" : "6月", "value" : 50 },
+            {"name" : "7月", "value" : 2},
+            {"name" : "8月", "value" : 55},
+            {"name" : "9月", "value" : 473},
+            {"name" : "10月", "value" : 32},
+            {"name" : "11月", "value" : 2},
+            {"name" : "12月", "value" : 124}
         ],
         "2021-04" : [
-            {"name" : 1, "value" : 100 },
-            {"name" : 2, "value" : 20},
-            {"name" : 3, "value" : 3 },
-            {"name" : 4, "value" : 20},
-            {"name" : 5, "value" : 50},
-            {"name" : 6, "value" : 1 },
-            {"name" : 7, "value" : 20},
-            {"name" : 8, "value" : 2},
-            {"name" : 9, "value" : 20},
-            {"name" : 10, "value" : 1},
-            {"name" : 11, "value" : 200},
-            {"name" : 12, "value" : 43}
+            {"name" : "1月", "value" : 10 },
+            {"name" : "2月", "value" : 20 },
+            {"name" : "3月", "value" : 30 },
+            {"name" : "4月", "value" : 40 },
+            {"name" : "5月", "value" : 50 },
+            {"name" : "6月", "value" : 60 },
+            {"name" : "7月", "value" : 70 },
+            {"name" : "8月", "value" : 80 },
+            {"name" : "9月", "value" : 90 },
+            {"name" : "10月", "value" : 100 },
+            {"name" : "11月", "value" : 110 },
+            {"name" : "12月", "value" : 120 }
         ]
     }
 }
