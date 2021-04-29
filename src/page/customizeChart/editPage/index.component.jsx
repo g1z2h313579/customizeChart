@@ -11,7 +11,7 @@ import './index.scss'
 
 export default withRouter(observer((props) => {
 
-
+    console.log("toJS(state.pageSelectList)",toJS(state.pageSelectList))
     return (
         <div className='editPage'>
             <div className='editModewrap'>

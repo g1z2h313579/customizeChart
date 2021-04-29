@@ -16,6 +16,7 @@ export default new class State {
     @observable isChangePage = false
     //开关回调
     @action onChange = () => {
+        
         this.isChangePage = !this.isChangePage
         if (this.isChangePage) {
             this.chartConfigList.push(this.emptyData)
@@ -261,7 +262,11 @@ export default new class State {
     @observable isEditPage = false
     @action editPage = (bl) => {
         this.isEditPage = bl
-        this.onChange(false)
+        // this.onChange(false)
+        if (this.isChangePage) {
+            this.chartConfigList.pop()
+            this.isChangePage = false
+        } 
         this.pageSelectList = this.chartConfigList.map(v => {
             v.label = v.cardNameValue
             v.value = v.cardNameValue
