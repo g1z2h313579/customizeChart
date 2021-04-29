@@ -42,28 +42,42 @@ export default new class {
     }
     @action pageNameChange = (e, key) => {
         let keyItem = this.findKeyItem(this.treeData, key)
-        keyItem.pagename = e.target.value
+        // console.log("keyItem",keyItem)
+        keyItem.pageName = e.target.value
+        // this.changeKeyItem(this.treeData, key, keyItem)
+        // console.log("toJS(this.treeData)",toJS(this.treeData))
+    }
+
+    @action changeKeyItem = (data, key, item) => {
+        console.log(this.treeData === data)
+        for(let i = 0; i < data.length; i++){
+            if(data[i].key === key){
+                data[i] = item
+            }
+            if(data[i].children && data[i].children.length > 0){
+                return this.findKeyItem(data[i].children, key)
+            }
+        }
     }
 
     findKeyItem = (data, key) => {
         for(let i = 0; i < data.length; i++){
             if(data[i].key === key){
                 return data[i]
-            }else if(data[i].children && data[i].children.length > 0){
-                this.findKeyItem(data[i].children, key)
+            }
+            if(data[i].children && data[i].children.length > 0){
+                return this.findKeyItem(data[i].children, key)
             }
         }
     }
 
     
-
-    @action createKey = (data, level, key) => {
-        let tmpData = _.cloneDeep(data)
+    createKeyFn = (tmpData, level, key) => {
         if (level === 0) {
             tmpData.map((v, i) => {
                 v.key = i + 1 + ''
                 v.title = <AddPage
-                    key={v.key}
+                    currentKey={v.key}
                     addChildPage={this.addChildPage}
                     toPageConfig={this.toPageConfig}
                     pageName={v.pageName}
@@ -71,7 +85,7 @@ export default new class {
                 />
                 v.pageName = ''
                 if (v.children && v.children.length > 0) {
-                    this.createKey(v.children, 1, v.key)
+                    this.createKeyFn(v.children, 1, v.key)
                 }
             })
         } else {
@@ -80,7 +94,7 @@ export default new class {
                 if (v.children && v.children.length > 0) {
                     v.key = key + '-' + (i + 1)
                     v.title = <AddPage
-                        key={v.key}
+                        currentKey={v.key}
                         addChildPage={this.addChildPage}
                         toPageConfig={this.toPageConfig}
                         pageName={v.pageName}
@@ -88,12 +102,28 @@ export default new class {
                     />
                     v.pageName = ''
                     tmpLevel++
-                    this.createKey(v.children, tmpLevel, v.key)
+                    this.createKeyFn(v.children, tmpLevel, v.key)
                 } else {
                     v.key = key + '-' + (i + 1)
+                    v.title = <AddPage
+                        currentKey={v.key}
+                        addChildPage={this.addChildPage}
+                        toPageConfig={this.toPageConfig}
+                        pageName={v.pageName}
+                        pageNameChange={this.pageNameChange}
+                    />
+                    v.pageName = ''
                 }
             })
+            // console.log("tmpData",tmpData)
         }
+    }
+
+    @action createKey = (data, level, key) => {
+        let tmpData = _.cloneDeep(data)
+        this.createKeyFn(tmpData, level, key)
+        // console.log("tmpData1111",tmpData)
         return tmpData
+        
     }
 }
