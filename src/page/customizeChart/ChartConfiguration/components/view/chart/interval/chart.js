@@ -33,6 +33,16 @@ class Chart {
                         dodgeBy : 'type'
                     }]);
         }
+        this.chart.axis("name",{
+            label:{
+                textStyle : { fill : "#fff"}
+            }
+        })
+        this.chart.axis("value",{
+            label:{
+                textStyle : { fill : "#fff"}
+            }
+        })
         
        
         this.chart.render()

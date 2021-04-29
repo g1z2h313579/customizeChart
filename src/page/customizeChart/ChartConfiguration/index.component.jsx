@@ -10,6 +10,7 @@ import './index.scss'
 export default class ChartConfiguration extends React.Component {
     constructor(props) {
         super(props)
+        this.viewContainer = React.createRef()
     }
 
 
@@ -22,12 +23,13 @@ export default class ChartConfiguration extends React.Component {
                 <div className='chartType'>
                     <ChartType {...this.props.chartType}  />
                 </div>
-                <div className='view'>
+                <div className='view' ref = {this.viewContainer}>
                     <ChartView
                         data = {this.props.chartView.modalChartData}
                         chartTypeValue = {this.props.chartView.chartTypeValue}
                         chartDatatype = {this.props.chartView.chartDatatype}
-                        height = {this.props.chartView.height}
+                        height = {this.viewContainer.current && this.viewContainer.current.offsetHeight - 100 || 300}
+                        width = {this.viewContainer.current && this.viewContainer.current.offsetWidth || 316}
                     />
 
                 </div>
