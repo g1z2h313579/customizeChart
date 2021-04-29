@@ -7,8 +7,6 @@ export default (props) => {
     const inputEl = useRef(null);
 
     function showSelectOrChart(type, index, t) {
-        console.log("inputEl",inputEl.current && inputEl.current.offsetWidth)
-        console.log("t",t)
         return (
             <div className='content' >
                 {
@@ -42,8 +40,6 @@ export default (props) => {
 
 
     function chooseShowPage(mode) {
-        // console.log("props.pageData", props.pageData)
-        // console.log("mode", mode)
         switch (mode) {
             case 'double':
                 return (

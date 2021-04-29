@@ -8,7 +8,7 @@ import {
 import React from 'react';
 export const menuList = [
     {
-        name : 'customizeChart',
+        name : '指标卡片库',
         icon : <DesktopOutlined/>,
         children : null,
         id : '/customizeChart',
@@ -20,6 +20,13 @@ export const menuList = [
         children : null,
         id : '/showPage',
         path : '/showPage'
+    },
+    {
+        name : '会议配置',
+        icon : <FileOutlined/>,
+        children : null,
+        id : '/meetingConfig',
+        path : '/meetingConfig'
     },
 
 ]
