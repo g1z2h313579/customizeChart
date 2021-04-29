@@ -11,15 +11,15 @@ import './index.scss'
 
 export default withRouter(observer((props) => {
 
-    console.log("toJS(state.pageSelectList)",toJS(state.pageSelectList))
+    // console.log("toJS(state.pageSelectList)",toJS(state.pageSelectList))
     return (
         <div className='editPage'>
             <div className='editModewrap'>
-                <div className='pageName'>
+                {/* <div className='pageName'>
                    <span className='title'>页面名称:</span>
                    <Input value={state.pageNameValue} onChange={state.pageNameOnChange} />
-                </div>
-                <Button className='back' onClick={() => { state.cancelPage();state.backToCardPage(); }} icon={<LeftOutlined />}>返回编辑卡片</Button>
+                </div> */}
+                <Button className='back' onClick={() => { state.cancelPage();state.backToCardPage(); }} icon={<LeftOutlined />}>返回菜单编辑</Button>
                 {
                     state.pageMode.map(v => {
                         return (
@@ -31,7 +31,7 @@ export default withRouter(observer((props) => {
                 }
                 <div className='yesOrNo'>
                     {/* <span className = 'yes' onClick = {state.confirmPage}><Link to = {'/showPage'}>确认</Link></span>  */}
-                   <span className = 'yes' onClick = {() => {state.confirmPage(props)}}>确认</span>
+                   <span className = 'yes' onClick = {() => {state.confirmPage(props)}}>保存</span>
                    <span className = 'no' onClick = {state.cancelPage}>取消</span>
                 </div>
             </div>

@@ -17,7 +17,7 @@ export default (props) => {
             <div className="title">{props.isSettingMeeting ? '会议详情' : title}</div>
             <div onClick = {props.toMeetingList}>返回</div>
 
-            <Tabs activeKey = {activeKey} onChange={(key) => {setActiveKey(key)}} className = "tabClass">
+            <Tabs activeKey = {props.tabActiveKey || activeKey} onChange={(key) => {props.tabActiveKeyTonull();setActiveKey(key)}} className = "tabClass">
                 <TabPane tab="会议信息" key="0">
                     <MeetingInfo  isSettingMeeting = {props.isSettingMeeting} />
                 </TabPane>

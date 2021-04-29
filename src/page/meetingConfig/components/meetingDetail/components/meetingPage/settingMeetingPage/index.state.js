@@ -2,7 +2,7 @@ import React from 'react'
 import { observable, action, toJS } from 'mobx'
 import _ from 'lodash'
 import AddPage from './components/addPage/index.component'
-
+import parentState from '../../../../../index.state'
 
 
 
@@ -17,10 +17,12 @@ export default new class {
                 {
                     title: "",
                     icon: '',
+                    children : []
                 },
                 {
                     title: "",
                     icon: '',
+                    children : []
                 },
             ],
         },
@@ -35,21 +37,28 @@ export default new class {
     }
 
     @action addChildPage = (key) => {
-        console.log("key", key)
+        // console.log("key", key)
+        let keyItem = this.findKeyItem(this.treeData, key)
+        keyItem.children.push({
+            title: "",
+            icon: '',
+            children : []
+        })
+        this.treeData = this.createKey(this.treeData, 0)
     }
-    @action toPageConfig = (key) => {
-
+    @action toPageConfig = (key, history) => {
+        parentState.isToPageConfig = true
     }
     @action pageNameChange = (e, key) => {
         let keyItem = this.findKeyItem(this.treeData, key)
         // console.log("keyItem",keyItem)
         keyItem.pageName = e.target.value
         // this.changeKeyItem(this.treeData, key, keyItem)
+        this.treeData = this.createKey(this.treeData, 0)
         // console.log("toJS(this.treeData)",toJS(this.treeData))
     }
 
     @action changeKeyItem = (data, key, item) => {
-        console.log(this.treeData === data)
         for(let i = 0; i < data.length; i++){
             if(data[i].key === key){
                 data[i] = item
@@ -83,7 +92,7 @@ export default new class {
                     pageName={v.pageName}
                     pageNameChange={this.pageNameChange}
                 />
-                v.pageName = ''
+                v.pageName = v.pageName ? v.pageName : ''
                 if (v.children && v.children.length > 0) {
                     this.createKeyFn(v.children, 1, v.key)
                 }
@@ -100,7 +109,7 @@ export default new class {
                         pageName={v.pageName}
                         pageNameChange={this.pageNameChange}
                     />
-                    v.pageName = ''
+                    v.pageName = v.pageName ? v.pageName : ''
                     tmpLevel++
                     this.createKeyFn(v.children, tmpLevel, v.key)
                 } else {
@@ -112,7 +121,7 @@ export default new class {
                         pageName={v.pageName}
                         pageNameChange={this.pageNameChange}
                     />
-                    v.pageName = ''
+                    v.pageName = v.pageName ? v.pageName : ''
                 }
             })
             // console.log("tmpData",tmpData)

@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 import { Button, Modal } from 'antd';
 import { toJS } from 'mobx'
 import state from './index.state'
-import { Switch,DatePicker } from 'antd'
+import { Switch, DatePicker } from 'antd'
 import moment from 'moment'
 import ChartConfiguration from '../ChartConfiguration/index.component'
 import EditPage from '../editPage/index.component'
@@ -23,19 +23,19 @@ class CustomizeChart extends React.Component {
         super(props)
         this.cardContainer = React.createRef()
         this.state = {
-            cardHeight : 0,
-            cardWidth : 0
+            cardHeight: 0,
+            cardWidth: 0
         }
     }
 
     componentWillMount() {
-        if(window.location.pathname === "/customizeChart?isEditPage=true"){
-            // state.cancelPage()
-            state.editPage(true)
-        }
+        // if (window.location.pathname === "/customizeChart?isEditPage=true") {
+        //     // state.cancelPage()
+        //     state.editPage(true)
+        // }
     }
 
-    componentWillUpdate(){
+    componentWillUpdate() {
         // console.log("this.cardContainer",this.cardContainer.current.offsetHeight)
         // if(this.cardContainer.current){
         //     this.setState({
@@ -46,31 +46,31 @@ class CustomizeChart extends React.Component {
     }
 
     componentDidMount() {
-        if(this.cardContainer.current && this.cardContainer.current.offsetWidth){
+        if (this.cardContainer.current && this.cardContainer.current.offsetWidth) {
             this.setState({
-                cardHeight : 350,
-                cardWidth : this.cardContainer.current.offsetWidth * 0.31
+                cardHeight: 350,
+                cardWidth: this.cardContainer.current.offsetWidth * 0.31
             })
         }
-        
+
     }
 
 
     render() {
-        
+
         return (
             <div className='customizeChart'>
-                {
-                    !state.isEditPage &&
-                    <>
+
+                {/* !state.isEditPage && */}
+                <>
                     <div className='changeShowType'>
                         {/* <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editPagePng} alt="" />} onClick={() => { state.editPage(true) }} className='editPageBtn' type="primary">编辑页面</Button> */}
-                        <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editCardPng} alt="" />} onClick={() => {state.onChange()}} className='editCardBtn' type="primary">编辑卡片</Button>
-                        <span style = {{marginRight : '20px'}}>
-                        <MonthPicker onChange={state.modalDateChange} value = {state.date} placeholder="选择年月" />
+                        <Button icon={<img style={{ width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px' }} src={editCardPng} alt="" />} onClick={() => { state.onChange() }} className='editCardBtn' type="primary">编辑卡片</Button>
+                        <span style={{ marginRight: '20px' }}>
+                            <MonthPicker onChange={state.modalDateChange} value={state.date} placeholder="选择年月" />
                         </span>
                     </div>
-                    <div className='viewPort' ref = {this.cardContainer}>
+                    <div className='viewPort' ref={this.cardContainer}>
                         {
                             toJS(state.chartConfigList).map((v, i, arr) => {
                                 if (i === arr.length - 1 && state.isChangePage) {
@@ -79,7 +79,7 @@ class CustomizeChart extends React.Component {
                                             className={state.isChangePage ? 'chartItemWarp mask' : 'chartItemWarp'}
                                             key={i} ref={this.chartItemWarp}
                                             onClick={() => { state.addChart() }}
-                                            ref = {this.cardContainer2}
+                                            ref={this.cardContainer2}
                                         >
                                             <Button className='addCardBtn' type="primary" shape="round" icon={<PlusCircleFilled />}>
                                                 添加卡片
@@ -92,7 +92,7 @@ class CustomizeChart extends React.Component {
                                             className={state.isChangePage ? 'chartItemWarp shake mask' : 'chartItemWarp'}
                                             key={i} ref={this.chartItemWarp}
                                             onClick={() => { state.changeChartType(v, i) }}
-                                            ref = {this.cardContainer}
+                                            ref={this.cardContainer}
                                         >
                                             {
                                                 state.isChangePage &&
@@ -103,8 +103,8 @@ class CustomizeChart extends React.Component {
                                                     chartTypeValue: v.chartTypeValue,
                                                     modalChartData: v.data,
                                                     chartDatatype: v.chartDatatype,
-                                                    height: this.state.cardHeight  ,
-                                                    width : this.state.cardWidth 
+                                                    height: this.state.cardHeight,
+                                                    width: this.state.cardWidth
                                                 }}
 
                                             />
@@ -120,7 +120,7 @@ class CustomizeChart extends React.Component {
 
                     <Modal
                         className='chartConfig'
-                        title={<div><img style={ {width: '15px', height: '15px', marginRight: '5px', marginBottom: '2px'} } src={settingPng} alt=""/><span style={ {marginLeft: '5px'} }>图形配置</span></div>}
+                        title={<div><img style={{ width: '15px', height: '15px', marginRight: '5px', marginBottom: '2px' }} src={settingPng} alt="" /><span style={{ marginLeft: '5px' }}>图形配置</span></div>}
                         closable={false}
                         visible={state.modalVisible}
                         width={'80%'}
@@ -170,12 +170,12 @@ class CustomizeChart extends React.Component {
 
                         />
                     </Modal>
-                    </>
-                }
-                {
+                </>
+
+                {/* {
                     state.isEditPage &&
                     <EditPage/>
-                }
+                } */}
 
             </div>
         )

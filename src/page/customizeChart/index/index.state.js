@@ -2,6 +2,7 @@ import { observable, action, toJS } from 'mobx'
 import { dataType, chartType, chartBaseConfig, targetToUrl,chartSelctList,chartSelectList_singleData,chartSelectList_multipleData } from './index.data'
 import { doubleDataMerge, singleData } from './chartDataTools'
 import pageState from './../../showPage/index.state'
+import meetingConfigState from '../../meetingConfig/index.state'
 import moment from 'moment'
 
 export default new class State {
@@ -291,7 +292,9 @@ export default new class State {
     }
 
     @action backToCardPage = () => {
-        this.isEditPage = false
+        // this.isEditPage = false
+        meetingConfigState.isToPageConfig = false
+        meetingConfigState.tabActiveKey = "2"
     }
 
     @observable pageSelectList = []
@@ -330,7 +333,7 @@ export default new class State {
 
     @action confirmPage = (props) => {
 
-        console.log("this.pageData[this.currentPageMode]",toJS(this.pageData[this.currentPageMode]))
+        // console.log("this.pageData[this.currentPageMode]",toJS(this.pageData[this.currentPageMode]))
 
         pageState.pageData.push({
             type: this.currentPageMode,
@@ -338,7 +341,7 @@ export default new class State {
             data:   JSON.parse(JSON.stringify(this.pageData[this.currentPageMode].data))
         })
 
-        props.history.push('/showPage')
+        // props.history.push('/showPage')
     }
     @action cancelPage = () => {
         this.pageNameValue = ''
