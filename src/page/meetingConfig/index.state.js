@@ -22,4 +22,10 @@ export default new class{
     @action toMeetingList = () => {
         this.isShowMeetingDetail = false
     }
+
+    @observable isToPageConfig = false
+    @observable tabActiveKey = null
+    @action tabActiveKeyTonull = () => {
+        this.tabActiveKey = null
+    }
 }

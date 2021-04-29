@@ -4,28 +4,32 @@ import { toJS } from 'mobx'
 import state from './index.state'
 import MeetingList from './components/meetingList/index.component'
 import MeetingDetail from './components/meetingDetail/index.component'
+import EditPage from '../customizeChart/editPage/index.component'
 import './index.scss'
 
 export default observer((props) => {
     return (
         <div className='meetingConfig'>
+
             {
-                !toJS(state.isShowMeetingDetail) &&
+                state.isToPageConfig ?
+                <EditPage/>
+                :
+                state.isShowMeetingDetail ? 
+                <MeetingDetail
+                    isSettingMeeting = {toJS(state.isSettingMeeting)}
+                    meetingDetailData = {toJS(state.meetingDetailData)}
+                    toMeetingList = {state.toMeetingList}
+                    tabActiveKey = {state.tabActiveKey}
+                    tabActiveKeyTonull = {state.tabActiveKeyTonull}
+                />
+                :
                 <MeetingList
                     addMeeting = {state.addMeeting}
                     meetingList = {toJS(state.meetingList)}
                     showMeetingDetail = {state.showMeetingDetail}
                 />
             }
-            {
-                toJS(state.isShowMeetingDetail) &&
-                <MeetingDetail
-                    isSettingMeeting = {toJS(state.isSettingMeeting)}
-                    meetingDetailData = {toJS(state.meetingDetailData)}
-                    toMeetingList = {state.toMeetingList}
-                />
-            }
-
         </div>
     )
 })
