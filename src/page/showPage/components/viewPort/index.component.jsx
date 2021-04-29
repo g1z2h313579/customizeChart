@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import ChartView from '../../../customizeChart/ChartConfiguration/components/view/chartView'
 
 export default (props) => {
-
+    console.log("props1111",props)
     const showPageContainer = useRef(null)
     // console.log("showPageContainer",showPageContainer)
     function renderChart(index, type) {
@@ -62,7 +62,7 @@ export default (props) => {
     return (
         <div className="viewPortWrap" ref = {showPageContainer}>
             {
-                props.currentPageInfo.type !== '' &&
+                props.currentPageInfo && props.currentPageInfo.type !== '' &&
                 pageMode()
             }
 
