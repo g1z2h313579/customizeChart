@@ -64,7 +64,7 @@ class CustomizeChart extends React.Component {
                 {/* !state.isEditPage && */}
                 <>
                     <div className='changeShowType'>
-                        {/* <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editPagePng} alt="" />} onClick={() => { state.editPage(true) }} className='editPageBtn' type="primary">编辑页面</Button> */}
+                        <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editPagePng} alt="" />} onClick={() => { state.editPage() }} className='editPageBtn' type="primary">保存</Button>
                         <Button icon={<img style={{ width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px' }} src={editCardPng} alt="" />} onClick={() => { state.onChange() }} className='editCardBtn' type="primary">编辑卡片</Button>
                         <span style={{ marginRight: '20px' }}>
                             <MonthPicker onChange={state.modalDateChange} value={state.date} placeholder="选择年月" />

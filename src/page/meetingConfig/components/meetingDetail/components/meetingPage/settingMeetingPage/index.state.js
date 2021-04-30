@@ -3,7 +3,8 @@ import { observable, action, toJS } from 'mobx'
 import _ from 'lodash'
 import AddPage from './components/addPage/index.component'
 import parentState from '../../../../../index.state'
-
+import showPageState from '../../../../../../showPage/index.state'
+import { message } from 'antd'
 
 
 export default new class {
@@ -17,23 +18,25 @@ export default new class {
                 {
                     title: "",
                     icon: '',
-                    children : []
+                    children: []
                 },
                 {
                     title: "",
                     icon: '',
-                    children : []
+                    children: []
                 },
             ],
         },
     ]
 
     @action addParentNode = () => {
-        this.treeData.push({
-            title: <AddPage />,
-            key: this.treeData.length + 1 + '',
+        let t = _.cloneDeep(this.treeData)
+        t.push({
+            title: "",
+            icon: '',
             children: []
         })
+        this.treeData = this.createKey(t, 0)
     }
 
     @action addChildPage = (key) => {
@@ -42,45 +45,60 @@ export default new class {
         keyItem.children.push({
             title: "",
             icon: '',
-            children : []
+            children: []
         })
         this.treeData = this.createKey(this.treeData, 0)
+        // console.log("this.treeData",toJS(this.treeData))
     }
-    @action toPageConfig = (key, history) => {
+    @observable currentPageContentKey = null
+    @action toPageConfig = (key) => {
+        this.currentPageContentKey = key
         parentState.isToPageConfig = true
     }
     @action pageNameChange = (e, key) => {
         let keyItem = this.findKeyItem(this.treeData, key)
-        // console.log("keyItem",keyItem)
         keyItem.pageName = e.target.value
-        // this.changeKeyItem(this.treeData, key, keyItem)
         this.treeData = this.createKey(this.treeData, 0)
-        // console.log("toJS(this.treeData)",toJS(this.treeData))
     }
 
-    @action changeKeyItem = (data, key, item) => {
-        for(let i = 0; i < data.length; i++){
-            if(data[i].key === key){
-                data[i] = item
-            }
-            if(data[i].children && data[i].children.length > 0){
-                return this.findKeyItem(data[i].children, key)
-            }
-        }
-    }
+
 
     findKeyItem = (data, key) => {
-        for(let i = 0; i < data.length; i++){
-            if(data[i].key === key){
-                return data[i]
-            }
-            if(data[i].children && data[i].children.length > 0){
-                return this.findKeyItem(data[i].children, key)
+        let t = null
+        data.map(v => {
+            t = this.recursionData(v, key)
+        })
+        return t
+    }
+
+    recursionData = (data,key) => {
+        if(data.key === key){
+            return data
+        }else {
+            if(data.children && data.children.length > 0){
+                return this.findKeyItem(data.children, key)
+            }else {
+                return null
             }
         }
     }
 
-    
+    changeTreeToShowPage = (data) => {
+        data.map(v => {
+            this.recursionToShowPage(v)
+        })
+    }
+
+    recursionToShowPage = (data) => {
+        data.title = data.pageName
+        if(data.children && data.children.length > 0){
+            return this.changeTreeToShowPage(data.children)
+        }else {
+            return null
+        }   
+    }
+
+
     createKeyFn = (tmpData, level, key) => {
         if (level === 0) {
             tmpData.map((v, i) => {
@@ -93,6 +111,7 @@ export default new class {
                     pageNameChange={this.pageNameChange}
                 />
                 v.pageName = v.pageName ? v.pageName : ''
+                v.pageData = v.pageData ? v.pageData : null
                 if (v.children && v.children.length > 0) {
                     this.createKeyFn(v.children, 1, v.key)
                 }
@@ -110,6 +129,7 @@ export default new class {
                         pageNameChange={this.pageNameChange}
                     />
                     v.pageName = v.pageName ? v.pageName : ''
+                    v.pageData = v.pageData ? v.pageData : null
                     tmpLevel++
                     this.createKeyFn(v.children, tmpLevel, v.key)
                 } else {
@@ -122,6 +142,7 @@ export default new class {
                         pageNameChange={this.pageNameChange}
                     />
                     v.pageName = v.pageName ? v.pageName : ''
+                    v.pageData = v.pageData ? v.pageData : null
                 }
             })
             // console.log("tmpData",tmpData)
@@ -133,6 +154,19 @@ export default new class {
         this.createKeyFn(tmpData, level, key)
         // console.log("tmpData1111",tmpData)
         return tmpData
-        
+
+    }
+
+
+    @action seePage = (history) => {
+        history.push('/showPage')
+    }
+    @action save = () => {
+        // console.log("treeData", toJS(this.treeData))
+        let t = _.cloneDeep(this.treeData)
+        this.changeTreeToShowPage(t)
+        showPageState.pageData = t
+
+        message.success('保存成功')
     }
 }

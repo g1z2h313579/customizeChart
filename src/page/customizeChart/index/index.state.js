@@ -3,6 +3,8 @@ import { dataType, chartType, chartBaseConfig, targetToUrl,chartSelctList,chartS
 import { doubleDataMerge, singleData } from './chartDataTools'
 import pageState from './../../showPage/index.state'
 import meetingConfigState from '../../meetingConfig/index.state'
+import treeState from '../../meetingConfig/components/meetingDetail/components/meetingPage/settingMeetingPage/index.state'
+import { message } from 'antd'
 import moment from 'moment'
 
 export default new class State {
@@ -273,7 +275,7 @@ export default new class State {
             v.value = v.cardNameValue
             return v
         })
-
+        message.success('保存成功')
     }
 
     pageMode = [
@@ -335,12 +337,20 @@ export default new class State {
 
         // console.log("this.pageData[this.currentPageMode]",toJS(this.pageData[this.currentPageMode]))
 
-        pageState.pageData.push({
+        // pageState.pageData.push({
+        //     type: this.currentPageMode,
+        //     pageName: this.pageNameValue,
+        //     data:   JSON.parse(JSON.stringify(this.pageData[this.currentPageMode].data))
+        // })
+        // console.log("treeState.treeData",toJS(treeState.treeData))
+        // console.log("treeState.currentPageContentKey",toJS(treeState.currentPageContentKey))
+        let keyItem = treeState.findKeyItem(treeState.treeData, treeState.currentPageContentKey)
+        keyItem.pageData = {
             type: this.currentPageMode,
-            pageName: this.pageNameValue,
+            pageName: keyItem.pageName,
             data:   JSON.parse(JSON.stringify(this.pageData[this.currentPageMode].data))
-        })
-
+        }
+        message.success('保存成功')
         // props.history.push('/showPage')
     }
     @action cancelPage = () => {
