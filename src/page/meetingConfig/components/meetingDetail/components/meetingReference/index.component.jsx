@@ -4,7 +4,7 @@ export default (props) => {
     return (
         <div className = "meetingReference">
             {
-                props.isSettingMeeting ? 
+                props.isSettingMeeting ?
                 "配置会议参考页面"
                 :
                 "浏览会议参考页面"
