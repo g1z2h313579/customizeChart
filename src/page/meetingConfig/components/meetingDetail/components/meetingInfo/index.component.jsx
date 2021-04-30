@@ -1,13 +1,15 @@
 import React from 'react'
+import meettingInfoAddPng from '../../../../../../assets/meeting-info-add.png'
+import meettingInfoDetailPng from '../../../../../../assets/meeting-info-detail.png'
 
 export default (props) => {
     return (
         <div className = "meetingInfo">
             {
-                props.isSettingMeeting ? 
-                "配置会议信息页面"
+                props.isSettingMeeting ?
+                    <img src={meettingInfoAddPng} alt=""/>
                 :
-                "浏览会议信息页面"
+                    <img src={meettingInfoDetailPng} alt=""/>
             }
 
         </div>

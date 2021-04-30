@@ -2,6 +2,12 @@ import { observable, action, toJS } from 'mobx'
 
 export default new class{
     @observable meetingList = [
+        {title : '公司2021年4月经分会', time : '2021年4月9日'},
+        {title : '公司2021年4月经分会', time : '2021年4月9日'},
+        {title : '公司2021年4月经分会', time : '2021年4月9日'},
+        {title : '公司2021年4月经分会', time : '2021年4月9日'},
+        {title : '公司2021年4月经分会', time : '2021年4月9日'},
+        {title : '公司2021年4月经分会', time : '2021年4月9日'},
         {title : '公司2021年4月经分会', time : '2021年4月9日'}
     ]
 
