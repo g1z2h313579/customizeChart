@@ -48,7 +48,7 @@ export default new class {
             children: []
         })
         this.treeData = this.createKey(this.treeData, 0)
-        // console.log("this.treeData",toJS(this.treeData))
+        console.log("this.treeData",toJS(this.treeData))
     }
     @observable currentPageContentKey = null
     @action toPageConfig = (key) => {
@@ -65,10 +65,10 @@ export default new class {
 
     findKeyItem = (data, key) => {
         let t = null
-        data.map(v => {
-            t = this.recursionData(v, key)
-        })
-        return t
+        for(let i = 0; i < data.length; i++){
+            t = this.recursionData(data[i], key)
+            if(t) return t
+        }
     }
 
     recursionData = (data,key) => {
