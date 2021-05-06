@@ -15,6 +15,7 @@ const Head = (props) => {
                 <Menu.Item key="4">房企</Menu.Item>
                 <Menu.Item key="5">项目</Menu.Item>
                 <Menu.Item key="6">资金</Menu.Item>
+                <Menu.Item key="7">R分析</Menu.Item>
             </Menu>
             
         </Header>

@@ -11,28 +11,5 @@ export default new class{
         {title : '公司2020年11月经分会', time : '2020年11月10日 2:30PM', status: 2, },
         {title : '公司2020年10月经分会', time : '2020年10月20日 2:30PM', status: 2, }
     ]
-
-    @observable isShowMeetingDetail = false
-    @observable isSettingMeeting = false
-    @action addMeeting = () => {
-        this.isShowMeetingDetail = true
-        this.isSettingMeeting = true
-    }
-
-    @action showMeetingDetail = () => {
-        this.isShowMeetingDetail = true
-        this.isSettingMeeting = false
-    }
-
     @observable meetingDetailData = []
-
-    @action toMeetingList = () => {
-        this.isShowMeetingDetail = false
-    }
-
-    @observable isToPageConfig = false
-    @observable tabActiveKey = null
-    @action tabActiveKeyTonull = () => {
-        this.tabActiveKey = null
-    }
 }

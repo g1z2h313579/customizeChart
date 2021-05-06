@@ -4,7 +4,17 @@ import { PlusCircleFilled } from "@ant-design/icons";
 import './index.scss'
 const { Option } = Select;
 const { RangePicker } = DatePicker
-export default (props) => {
+import { withRouter } from "react-router";
+export default withRouter((props) => {
+    function showMeetingDetail() {
+        props.history.push("/meetingDetail");
+    }
+    function showMeetingPage() {
+        // props.history.push("/meetingConfig");
+    }
+    function addMeeting() {
+        props.history.push("/meetingConfig");
+    }
     return (
         <>
             <div className="header">
@@ -31,7 +41,7 @@ export default (props) => {
                             <Form.Item />
                         </Col>
                         <Col span={6}>
-                            <Button onClick={props.addMeeting} icon={<PlusCircleFilled />} type="primary">添加会议</Button>
+                            <Button onClick={addMeeting} icon={<PlusCircleFilled />} type="primary">添加会议</Button>
                         </Col>
                     </Row>
                 </Form>
@@ -50,8 +60,8 @@ export default (props) => {
                                     <div className="time-date">{v.time}</div>
                                 </div>
                                 <div className="btn-wrap">
-                                    <Button className="btn btn-info" onClick={props.showMeetingDetail} type='primary'>查看详情</Button>
-                                    <Button className="btn btn-page" onClick={props.showMeetingDetail} type='primary'>会议页面</Button>
+                                    <Button className="btn btn-info" onClick={showMeetingDetail} type='primary'>查看详情</Button>
+                                    <Button className="btn btn-page" onClick={showMeetingPage} type='primary'>会议页面</Button>
                                 </div>
                             </div>
                         )
@@ -60,7 +70,7 @@ export default (props) => {
             </div>
         </>
     )
-}
+})
 
 function renderStatus (status){
     let html = "", className = "";
