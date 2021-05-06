@@ -15,7 +15,8 @@ import Bread from "./components/bread/bread";
 const Entry = withRouter((props) => {
     // console.log(process.env.NODE_ENV )
     // console.log(props,'props')
-
+    console.log(props.history);
+    const isShowfoot = props.history.location.pathname !== "/meetingList";
     function showSiderbar() {
         let t = NoSiderBarList.filter(v => v === window.location.pathname)
         if (t.length > 0) {
@@ -39,13 +40,13 @@ const Entry = withRouter((props) => {
                 }
                 <Content className='contentwrap'>
                     <div className="bodyContainer">
-                        <Bread location={window.location.pathname} />
+                        {/* <Bread location={window.location.pathname} /> */}
                         <H_Context.Provider value={'this is a context'}>
                             <CurrentPage />
                         </H_Context.Provider>
                     </div>
                 </Content>
-                <Foot />
+                { isShowfoot && <Foot /> }
             </Layout>
         </Layout>
 
