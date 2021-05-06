@@ -10,24 +10,16 @@ import './index.scss'
 export default observer((props) => {
     return (
         <div className='meetingConfig'>
-
             {
                 state.isToPageConfig ?
                 <EditPage/>
                 :
-                state.isShowMeetingDetail ? 
                 <MeetingDetail
                     isSettingMeeting = {toJS(state.isSettingMeeting)}
                     meetingDetailData = {toJS(state.meetingDetailData)}
                     toMeetingList = {state.toMeetingList}
                     tabActiveKey = {state.tabActiveKey}
                     tabActiveKeyTonull = {state.tabActiveKeyTonull}
-                />
-                :
-                <MeetingList
-                    addMeeting = {state.addMeeting}
-                    meetingList = {toJS(state.meetingList)}
-                    showMeetingDetail = {state.showMeetingDetail}
                 />
             }
         </div>

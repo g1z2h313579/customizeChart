@@ -85,7 +85,7 @@ export const menuList = [
                 icon: <FileOutlined />,
                 children: null,
                 id: '4-3',
-                path: '/404'
+                path: '/meetingList'
             },
         ]
 
