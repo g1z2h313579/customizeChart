@@ -159,7 +159,8 @@ export default new class {
 
 
     @action seePage = (history) => {
-        history.push('/showPage')
+        // history.push('/showPage')
+        window.open('/showPage')
     }
     @action save = () => {
         // console.log("treeData", toJS(this.treeData))

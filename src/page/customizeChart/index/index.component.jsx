@@ -153,7 +153,9 @@ class CustomizeChart extends React.Component {
                                 dimensionCurrentSelect: toJS(state.dimensionCurrentSelect),
                                 cardNameOnChange: state.cardNameOnChange,
                                 cardNameValue: toJS(state.cardNameValue),
-                                date: toJS(state.modalYearMonth).momentDate
+                                date: toJS(state.modalYearMonth).momentDate,
+                                tagName : toJS(state.tagName),
+                                tagNameOnChange : state.tagNameOnChange
                             }}
 
                             chartType={{

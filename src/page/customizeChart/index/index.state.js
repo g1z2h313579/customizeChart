@@ -98,6 +98,7 @@ export default new class State {
         this.dimensionCurrentSelect = ''
         this.cardNameValue = ''
         this.isChangeChartType = false
+        this.tagName = ['','','']
     }
     @action handleCancel = () => {
         this.modalVisible = false
@@ -259,6 +260,14 @@ export default new class State {
     @observable chartTypeValue = ''
 
     @observable chartTypeList = chartSelctList
+
+
+    //配置modal的标签
+    @observable tagName = ['','','']
+    @action tagNameOnChange = (e, index) => {
+        e.persist()
+        this.tagName[index] = e.target.value
+    }
 
 
     //-------------------页面逻辑---------------------
