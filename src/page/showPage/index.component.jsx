@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import { observer } from 'mobx-react'
 import { toJS } from 'mobx'
 import state from './index.state'
@@ -12,31 +12,16 @@ import './index.scss'
 const { MonthPicker } = DatePicker;
 export default withRouter(observer((props) => {
     
+    useEffect(() => {
+        state.initPageData(JSON.parse(localStorage.getItem('treeData')))
+    },[])
+
     return (
         <div className="showPage">
             <div className='date'>
                 <MonthPicker onChange={state.changePageData} value={state.date.momentDate} placeholder="选择年月" />
             </div>
             <div className='menuList'>
-                {/* <div
-                    className='backToAddPage'
-                    onClick={() => {
-                        props.history.push('/customizeChart?isEditPage=true');
-                        customizeChartState.cancelPage();
-                        state.currentPageInfo = {
-                            type: '',
-                            pageName: '',
-                            data: []
-                        }
-                    }
-                    }>配置页面</div> */}
-                {/* <ul>
-                    {
-                        toJS(state.pageData).map((v, i) => {
-                            return <li key={i} className={v.pageName === state.currentPageInfo.pageName ? 'action' : ''} onClick={() => { state.changePageContent(v) }}>{v.pageName}</li>
-                        })
-                    }
-                </ul> */}
                 <Tree
                     showIcon
                     defaultExpandAll = {true}

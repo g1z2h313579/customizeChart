@@ -16,7 +16,9 @@ export default new class {
         // console.log("rest",rest)
     }
     @observable date = customizeState.modalYearMonth
-
+    @action initPageData = (data) => {
+        this.pageData = data
+    }
     @action changePageData = async (date, dateString) => {
         console.log("pageData", toJS(this.pageData))
         let w = dateString.split('-')

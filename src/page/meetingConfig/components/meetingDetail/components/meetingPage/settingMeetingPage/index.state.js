@@ -166,7 +166,8 @@ export default new class {
         // console.log("treeData", toJS(this.treeData))
         let t = _.cloneDeep(this.treeData)
         this.changeTreeToShowPage(t)
-        showPageState.pageData = t
+        localStorage.setItem('treeData', JSON.stringify(t))
+        // showPageState.pageData = t
 
         message.success('保存成功')
     }
