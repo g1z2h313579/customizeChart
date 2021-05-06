@@ -10,7 +10,6 @@ export const menuList = [
     {
         name: '工作台',
         icon: <DesktopOutlined />,
-        children: null,
         id: '111',
         children: [
             {

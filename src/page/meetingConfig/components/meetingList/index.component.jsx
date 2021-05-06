@@ -1,10 +1,8 @@
 import React from 'react'
-import SelectComponent
-    from "../../../customizeChart/ChartConfiguration/components/components/selectComponent/index.component";
 import { Button, Col, Form, Row, Select, DatePicker } from "antd";
 import { PlusCircleFilled } from "@ant-design/icons";
 import './index.scss'
-import { Option } from "antd/es/mentions";
+const { Option } = Select;
 const { RangePicker } = DatePicker
 export default (props) => {
     return (
@@ -43,9 +41,18 @@ export default (props) => {
                     props.meetingList.map((v, i) => {
                         return (
                             <div className='card-item' key={i}>
-                                <h3>{v.title}</h3>
-                                <p>{v.time}</p>
-                                <Button onClick={props.showMeetingDetail} type='primary'>查看详情</Button>
+                                <div className="title">
+                                    <h3>{v.title}</h3>
+                                    {renderStatus(v.status)}
+                                </div>
+                                <div className="time">
+                                    <div className="time-title">会议时间：</div>
+                                    <div className="time-date">{v.time}</div>
+                                </div>
+                                <div className="btn-wrap">
+                                    <Button className="btn btn-info" onClick={props.showMeetingDetail} type='primary'>查看详情</Button>
+                                    <Button className="btn btn-page" onClick={props.showMeetingDetail} type='primary'>会议页面</Button>
+                                </div>
                             </div>
                         )
                     })
@@ -53,4 +60,23 @@ export default (props) => {
             </div>
         </>
     )
+}
+
+function renderStatus (status){
+    let html = "", className = "";
+    switch (status) {
+        case 0:
+            html = "未开始";
+            className = "not_start";
+            break;
+        case 1:
+            html = "进行中";
+            className = "processing";
+            break;
+        default:
+            html = "已结束";
+            className = "over";
+            break;
+    }
+    return <span className={`status ${className}`}>{html}</span>
 }
