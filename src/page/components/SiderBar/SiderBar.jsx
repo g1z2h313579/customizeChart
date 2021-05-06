@@ -9,7 +9,7 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const SiderBar = observer(() => {
-    let [collapsed, setcollapsed] = useState(true);
+    let [collapsed, setcollapsed] = useState(false);
     function renderMenu(item) {
         if (item.children === null) {
             return (

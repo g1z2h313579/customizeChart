@@ -22,13 +22,13 @@ export const menuList = [
         ]
 
     },
-    {
-        name: 'showPage',
-        icon: <PieChartOutlined />,
-        children: null,
-        id: '/showPage',
-        path: '/showPage'
-    },
+    // {
+    //     name: 'showPage',
+    //     icon: <PieChartOutlined />,
+    //     children: null,
+    //     id: '/showPage',
+    //     path: '/showPage'
+    // },
     {
         name: '会议配置',
         icon: <FileOutlined />,
