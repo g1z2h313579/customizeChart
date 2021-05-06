@@ -8,8 +8,9 @@ import state from '../index.state';
 import './index.scss'
 const { Content } = Layout;
 import { withRouter } from "react-router";
-import {H_Context} from '../config/history_context'
+import { H_Context } from '../config/history_context'
 import { NoSiderBarList } from '../config/showSiderbar'
+import Bread from "./components/bread/bread";
 
 const Entry = withRouter((props) => {
     // console.log(process.env.NODE_ENV )
@@ -17,9 +18,9 @@ const Entry = withRouter((props) => {
 
     function showSiderbar() {
         let t = NoSiderBarList.filter(v => v === window.location.pathname)
-        if(t.length > 0){
+        if (t.length > 0) {
             return false
-        }else {
+        } else {
             return true
         }
     }
@@ -28,16 +29,18 @@ const Entry = withRouter((props) => {
         <Layout style={{ height: '100%' }}>
             {
                 showSiderbar() &&
-                <SiderBar />
+                <Head />
             }
-            <Layout style={ {overflowY: 'hidden'} }>
+
+            <Layout style={{ overflowY: 'hidden' }}>
                 {
                     showSiderbar() &&
-                    <Head />
+                    <SiderBar />
                 }
-                <Content className = 'contentwrap'>
+                <Content className='contentwrap'>
                     <div className="bodyContainer">
-                        <H_Context.Provider value = {'this is a context'}>
+                        <Bread location={window.location.pathname} />
+                        <H_Context.Provider value={'this is a context'}>
                             <CurrentPage />
                         </H_Context.Provider>
                     </div>

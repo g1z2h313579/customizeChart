@@ -14,7 +14,7 @@ const SiderBar = observer(() => {
         if (item.children === null) {
             return (
                 <Menu.Item key={item.id} icon={item.icon}>
-                    <Link to = {item.id}>
+                    <Link to = {item.path}>
                         {item.name}
                     </Link>
                 </Menu.Item>
