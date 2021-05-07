@@ -78,15 +78,15 @@ export const menuList = [
                 icon: <FileOutlined />,
                 children: null,
                 id: '4-2',
-                path: '/meetingConfig'
-            },
-            {
-                name: '会议列表',
-                icon: <FileOutlined />,
-                children: null,
-                id: '4-3',
                 path: '/meetingList'
             },
+            // {
+            //     name: '会议列表',
+            //     icon: <FileOutlined />,
+            //     children: null,
+            //     id: '4-3',
+            //     path: '/meetingList'
+            // },
         ]
 
     },

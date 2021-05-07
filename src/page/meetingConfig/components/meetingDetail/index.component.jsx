@@ -6,17 +6,22 @@ import MeetingPage from './components/meetingPage/index.component'
 import MeetingStuff from './components/meetingStuff/index.component'
 import './index.scss'
 import { LeftOutlined } from "@ant-design/icons";
-
+import { withRouter } from "react-router";
 const { TabPane } = Tabs;
 
-export default (props) => {
+export default withRouter((props) => {
     let [activeKey, setActiveKey] = useState("0")
 
     let { title = '' } = props.meetingDetailData
+
+    function toMeetingList() {
+        props.history.push("/meetingList");
+    }
+
     return (
         <div className='meetingDetail'>
             {/*<div className="title">{props.isSettingMeeting ? '会议详情' : title}</div>*/}
-            {/* <Button className='back'  onClick = {props.toMeetingList} icon={<LeftOutlined />}>返回</Button> */}
+            <Button className='back'  onClick = {toMeetingList} icon={<LeftOutlined />}>返回</Button>
 
             <Tabs activeKey = {props.tabActiveKey || activeKey} onChange={(key) => {props.tabActiveKeyTonull();setActiveKey(key)}} className = "tabClass">
                 <TabPane tab="会议信息" key="0">
@@ -34,4 +39,4 @@ export default (props) => {
             </Tabs>
         </div>
     )
-}
+})
