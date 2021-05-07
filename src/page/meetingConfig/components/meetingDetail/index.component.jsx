@@ -5,7 +5,6 @@ import MeetingReference from './components/meetingReference/index.component'
 import MeetingPage from './components/meetingPage/index.component'
 import MeetingStuff from './components/meetingStuff/index.component'
 import './index.scss'
-import state from "../../../customizeChart/index/index.state";
 import { LeftOutlined } from "@ant-design/icons";
 
 const { TabPane } = Tabs;
@@ -18,7 +17,6 @@ export default (props) => {
         <div className='meetingDetail'>
             {/*<div className="title">{props.isSettingMeeting ? '会议详情' : title}</div>*/}
             <Button className='back'  onClick = {props.toMeetingList} icon={<LeftOutlined />}>返回</Button>
-
             <Tabs activeKey = {props.tabActiveKey || activeKey} onChange={(key) => {props.tabActiveKeyTonull();setActiveKey(key)}} className = "tabClass">
                 <TabPane tab="会议信息" key="0">
                     <MeetingInfo  isSettingMeeting = {props.isSettingMeeting} />

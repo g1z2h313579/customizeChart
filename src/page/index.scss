@@ -1,25 +1,71 @@
-.contentwrap{
-    background: url('../assets/background.png') no-repeat;
-    background-size: 100% 100%;
+.contentwrap {
+  background: url("../assets/background.png") no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+  overflow-y: auto;
+  .bodyContainer {
     height: 100%;
-    overflow-y: auto;
-    .bodyContainer{
-        height: 100%;
-    }
+  }
 }
 
-.ant-layout-footer{
-    color: rgba(255,255,255,1)!important;
-    background: transparent!important;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+.ant-layout-footer {
+  color: rgba(255, 255, 255, 1) !important;
+  background: transparent !important;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-h1,h2,h3,h,h5,h6{
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
-    color: #fff;
+h1,
+h2,
+h3,
+h,
+h5,
+h6 {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+/*修改滚动条样式*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  /**/
+}
+::-webkit-scrollbar-track {
+  background: #273d8973;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: #273d8966;
+  border-radius: 10px;
+}
+
+input::-webkit-input-placeholder {
+  color: #fff;
+}
+input::-moz-input-placeholder {
+  color: #fff;
+}
+input::-ms-input-placeholder {
+  color: #fff;
+}
+
+select::-webkit-input-placeholder {
+  color: #fff;
+}
+select::-moz-input-placeholder {
+  color: #fff;
+}
+select::-ms-input-placeholder {
+  color: #fff;
+}
+
+ul,li{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
