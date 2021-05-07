@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { message, Input, Button, Row, Col, Upload } from "antd";
 import {
   FolderViewOutlined,
@@ -6,6 +6,9 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 export default (props) => {
+
+  const [fileName, setFileName] = useState("")
+
   const uploadProps = {
     name: "file",
     action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
@@ -13,6 +16,7 @@ export default (props) => {
       authorization: "authorization-text",
     },
     onChange(info) {
+      setFileName(() =>info.file.name);
       if (info.file.status !== "uploading") {
         console.log(info.file, info.fileList);
       }
@@ -59,7 +63,7 @@ export default (props) => {
             <li>
               <div className="name">材料三：</div>
               <div className="file_name">
-                <a href="">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.JPG</a>
+                <a href="">XXXXXXXXXXXXXXXXX.JPG</a>
               </div>
               <div className="btn">
                 <Button type="primary" icon={<FolderViewOutlined />}>
@@ -75,7 +79,7 @@ export default (props) => {
         <Col span={24}>
           <Col span={12}>
             <div className="upload">
-              <Input placeholder="选着要上传的文件"/>
+              <Input placeholder="选着要上传的文件" value={fileName}/>
               <Upload {...uploadProps}>
                 <Button icon={<UploadOutlined />}>点击上传</Button>
               </Upload>

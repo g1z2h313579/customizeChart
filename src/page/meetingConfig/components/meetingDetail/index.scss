@@ -155,58 +155,93 @@
   }
 }
 
-.meetingStuff{
-  ul{
-    li{
+.meetingStuff {
+  ul {
+    li {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 30px;
-      .name{
-        background: linear-gradient(134deg, #273d89 0%, rgba(32, 53, 122, 0.6) 100%);
+      .name {
+        background: linear-gradient(
+          134deg,
+          #273d89 0%,
+          rgba(32, 53, 122, 0.6) 100%
+        );
         padding: 5px 10px;
         border-radius: 5px;
       }
-      .file_name{
+      .file_name {
         width: 40%;
         text-align: left;
-        a{
+        a {
           color: #fff;
           border-bottom: 1px solid;
         }
       }
-      .btn{
-        Button{
+      .btn {
+        Button {
           background: transparent;
           border-radius: 20px;
           border: 1px solid #3ec1f9;
           color: #3ec1f9;
-          &:first-child{
+          &:first-child {
             margin-right: 20px;
           }
         }
       }
     }
   }
-  .upload{
+  .upload {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .ant-input{
+    .ant-input {
       margin-right: 20px;
-      background: linear-gradient(134deg, #273d89 0%, rgba(32, 53, 122, 0.6) 100%);
+      background: linear-gradient(
+        134deg,
+        #273d89 0%,
+        rgba(32, 53, 122, 0.6) 100%
+      );
       border: 0;
       color: #fff;
     }
-    .ant-upload{
-      .ant-btn{
+    .ant-upload {
+      .ant-btn {
         color: #fff;
         background: #24c9fc;
         border: 0;
       }
     }
-    .ant-upload-list{
+    .ant-upload-list {
       display: none;
+    }
+  }
+}
+
+.meetingReference {
+  .ant-upload-list {
+    display: none;
+  }
+  .TextArea_content {
+    textarea {
+      color: #fff;
+      background: linear-gradient(
+        134deg,
+        rgba(39, 61, 137, 1) 0%,
+        rgba(32, 53, 122, 0.6) 100%
+      );
+      border: 0;
+    }
+  }
+  .upload{
+    .ant-upload{
+      margin: 20px 0;
+      .ant-btn {
+        color: #fff;
+        background: #24c9fc;
+        border: 0;
+      }
     }
   }
 }
