@@ -64,7 +64,7 @@ class CustomizeChart extends React.Component {
                 {/* !state.isEditPage && */}
                 <>
                     <div className='changeShowType'>
-                        <Button icon={<img style={ {width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px'} } src={editPagePng} alt="" />} onClick={() => { state.editPage() }} className='editPageBtn' type="primary">保存</Button>
+                        <Button icon={<img style={{ width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px' }} src={editPagePng} alt="" />} onClick={() => { state.editPage() }} className='editPageBtn' type="primary">保存</Button>
                         <Button icon={<img style={{ width: '15px', height: '15px', marginBottom: '5px', marginRight: '5px' }} src={editCardPng} alt="" />} onClick={() => { state.onChange() }} className='editCardBtn' type="primary">编辑卡片</Button>
                         <span style={{ marginRight: '20px' }}>
                             <MonthPicker onChange={state.modalDateChange} value={state.date} placeholder="选择年月" />
@@ -87,17 +87,20 @@ class CustomizeChart extends React.Component {
                                         </div>
                                     )
                                 } else {
+                                    console.log("vvvvv",v)
                                     return (
+                
                                         <div
                                             className={state.isChangePage ? 'chartItemWarp shake mask' : 'chartItemWarp'}
                                             key={i} ref={this.chartItemWarp}
-                                            onClick={() => { state.changeChartType(v, i) }}
+                                            // onClick={() => { state.changeChartType(v, i) }}
                                             ref={this.cardContainer}
                                         >
-                                            {
+                                            {/* {
                                                 state.isChangePage &&
                                                 <img onClick={(e) => { state.deleteChartItem(v, i, e) }} className='deleteItem' src={deletePng} alt="" />
-                                            }
+                                            } */}
+                                            <div className = "title">{v.cardNameValue}</div>
                                             <ChartItem
                                                 chartView={{
                                                     chartTypeValue: v.chartTypeValue,
@@ -108,6 +111,10 @@ class CustomizeChart extends React.Component {
                                                 }}
 
                                             />
+                                            <div className="btn">
+                                                <img src={require('../img/bianji.png').default} onClick={() => { state.changeChartType(v, i) }} />
+                                                <img src={require('../img/del.png').default} onClick={(e) => { state.deleteChartItem(v, i, e) }} />
+                                            </div>
                                         </div>
 
                                     )
@@ -154,8 +161,8 @@ class CustomizeChart extends React.Component {
                                 cardNameOnChange: state.cardNameOnChange,
                                 cardNameValue: toJS(state.cardNameValue),
                                 date: toJS(state.modalYearMonth).momentDate,
-                                tagName : toJS(state.tagName),
-                                tagNameOnChange : state.tagNameOnChange
+                                tagName: toJS(state.tagName),
+                                tagNameOnChange: state.tagNameOnChange
                             }}
 
                             chartType={{

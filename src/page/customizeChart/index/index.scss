@@ -31,10 +31,12 @@
             margin: 0 1%;
             height: 350px;
             position: relative;
-            background-image: linear-gradient(134deg, rgba(39, 61, 137, 0.6) 0%, rgba(32, 53, 122, 0.6) 100%);
-            border-radius: 4px;
+            // background-image: linear-gradient(134deg, rgba(39, 61, 137, 0.6) 0%, rgba(32, 53, 122, 0.6) 100%);
+            // border-radius: 4px;
             cursor: pointer;
             margin-top: 20px;
+            border: 1px solid #123E67;
+            border-radius: 4px;
 
             .addCardBtn {
                 position: absolute;

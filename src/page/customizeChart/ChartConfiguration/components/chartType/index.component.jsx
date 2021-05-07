@@ -21,8 +21,13 @@ export default (props) => {
             {
                 props.chartTypeList.map((v, i) => {
                     return (
-                        <div className = "chartTypeItem" key = {i}>
-                            <img src = {require(`../../../img/${v.value}.png`).default} />
+                        <div className = "chartTypeItem" key = {i} onClick = {() => {props.chartTypeChange(v.value)}}>
+                            {
+                                v.value === props.chartTypeValue &&
+                                <img className = "okImg" src = {require(`../../../img/ok.png`).default} />
+                            }
+                            <img className = "chartImg" src = {require(`../../../img/${v.value}.png`).default} />
+                            <span>{v.label}</span>
                         </div>
                     )
                 })
