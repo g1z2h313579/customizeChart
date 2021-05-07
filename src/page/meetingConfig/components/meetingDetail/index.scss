@@ -1,19 +1,289 @@
-.meetingDetail{
-    padding: 20px;
+.meetingDetail {
+  padding: 20px;
 
-    .tabClass{
-        color: #fff;
-        margin-top: 10px;
+  .tabClass {
+    color: #fff;
+    margin-top: 10px;
 
-        .ant-tabs-tab {
-            font-size: 20px;
-        }
+    .ant-tabs-tab {
+      font-size: 20px;
     }
+  }
 }
 
-.back{
-    background-color: #10386A;
+.back {
+  background-color: #10386a;
+  color: #fff;
+  opacity: 0.6;
+  border-color: #256294;
+}
+
+.meetingInfo {
+  .ant-form {
+    &-item {
+      &-label {
+        label {
+          color: #1890ff;
+        }
+      }
+      &-control {
+        .ant-select {
+          &-selector {
+            background: linear-gradient(
+              134deg,
+              rgba(39, 61, 137, 1) 0%,
+              rgba(32, 53, 122, 0.6) 100%
+            );
+            border: 0;
+          }
+          &-selection {
+            &-item,
+            &-search {
+              color: #fff;
+            }
+          }
+          &-arrow {
+            color: #fff;
+          }
+        }
+        &-input {
+          textarea,
+          input {
+            color: #fff;
+            background: linear-gradient(
+              134deg,
+              rgba(39, 61, 137, 1) 0%,
+              rgba(32, 53, 122, 0.6) 100%
+            );
+            border: 0;
+          }
+          &-content {
+            position: relative;
+            .add {
+              position: absolute;
+              right: 10px;
+              top: 5px;
+              color: #fff;
+              background: #24c9fc;
+              border-radius: 50%;
+              font-size: 20px;
+              cursor: pointer;
+            }
+          }
+          .ant-btn-primary {
+            background: #24c9fc;
+          }
+          .meetingUserList {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            & > div {
+              padding: 2px 20px 2px 10px;
+              border-radius: 4px;
+              background: linear-gradient(
+                134deg,
+                rgba(39, 61, 137, 1) 0%,
+                rgba(32, 53, 122, 0.6) 100%
+              );
+              color: #fff;
+              position: relative;
+              margin-right: 10px;
+              span.anticon {
+                position: absolute;
+                right: 0;
+                top: -3px;
+                color: #000;
+                background: red;
+                border-radius: 50%;
+                cursor: pointer;
+              }
+            }
+          }
+          .meetingAgendaList {
+            margin-top: 10px;
+            border: 1px solid rgba(39, 61, 137, 1);
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+            .agenda {
+              &_title {
+                color: #000;
+                background: #24c9fc;
+                position: absolute;
+                padding: 5px 20px;
+                top: 0;
+                left: 0;
+                border-top-left-radius: 5px;
+                border-bottom-right-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+              }
+              &_delete {
+                position: absolute;
+                right: 0;
+                top: 0;
+                span {
+                  color: #fff;
+                  font-size: 16px;
+                  background: #d14547;
+                  padding: 5px;
+                  border-radius: 3px;
+                  cursor: pointer;
+                }
+              }
+              &_time {
+                margin: 30px 0 10px;
+                .ant-picker {
+                  margin-right: 20px;
+                }
+              }
+              &_content {
+              }
+            }
+          }
+          .btn {
+            margin-right: 30px;
+            border: 0;
+            &:first-child {
+              background: linear-gradient(230deg, #ee6e23, #f7ab00);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.meetingStuff{
+  ul{
+    li{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      .name{
+        background: linear-gradient(134deg, #273d89 0%, rgba(32, 53, 122, 0.6) 100%);
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+      .file_name{
+        width: 40%;
+        text-align: left;
+        a{
+          color: #fff;
+          border-bottom: 1px solid;
+        }
+      }
+      .btn{
+        Button{
+          background: transparent;
+          border-radius: 20px;
+          border: 1px solid #3ec1f9;
+          color: #3ec1f9;
+          &:first-child{
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+  .upload{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .ant-input{
+      margin-right: 20px;
+      background: linear-gradient(134deg, #273d89 0%, rgba(32, 53, 122, 0.6) 100%);
+      border: 0;
+      color: #fff;
+    }
+    .ant-upload{
+      .ant-btn{
+        color: #fff;
+        background: #24c9fc;
+        border: 0;
+      }
+    }
+    .ant-upload-list{
+      display: none;
+    }
+  }
+}
+
+.ant-select {
+  &-dropdown {
+    background: linear-gradient(
+      134deg,
+      rgb(107, 135, 231) 0%,
+      rgb(37, 52, 102) 100%
+    );
+  }
+  &-item {
     color: #fff;
-    opacity: .6;
-    border-color: #256294;
+    &-option-active {
+      background: linear-gradient(
+        134deg,
+        rgb(107, 135, 231) 0%,
+        rgb(51, 70, 134) 100%
+      );
+    }
+    &-option-active:not(.ant-select-item-option-disabled),
+    &-option-selected:not(.ant-select-item-option-disabled) {
+      color: #fff;
+      font-weight: 600;
+      background: linear-gradient(
+        134deg,
+        rgb(107, 135, 231) 0%,
+        rgb(51, 70, 134) 100%
+      );
+    }
+  }
+}
+
+.ant-picker {
+  background: linear-gradient(134deg, #273d89 0%, rgba(32, 53, 122, 0.6) 100%);
+  border: 0;
+  &-dropdown {
+    color: #fff;
+  }
+  &-panel {
+    border: 0;
+    &-container {
+      background: linear-gradient(134deg, #6b87e7 0%, #495ea3 100%);
+    }
+    .ant-picker-footer {
+      border: 0;
+    }
+  }
+  &-range-arrow::after {
+    border-color: #6b87e7 #6b87e7 transparent transparent;
+  }
+  &-header {
+    border-bottom: 0;
+  }
+  &-input {
+    & > input {
+      color: #fff;
+    }
+  }
+  &-clear,
+  &-suffix,
+  &-separator {
+    color: #fff;
+  }
+  &-clear {
+    background: #1a2a60;
+  }
+  &-cell-disabled::before {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  &-datetime-panel {
+    .ant-picker-time-panel {
+      border: 0;
+    }
+  }
+}
+.ant-picker-time-panel-column:not(:first-child) {
+  border: 0;
 }
