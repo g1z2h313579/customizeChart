@@ -48,8 +48,8 @@ class CustomizeChart extends React.Component {
     componentDidMount() {
         if (this.cardContainer.current && this.cardContainer.current.offsetWidth) {
             this.setState({
-                cardHeight: 350,
-                cardWidth: this.cardContainer.current.offsetWidth * 0.31
+                cardHeight: 260,
+                cardWidth: this.cardContainer.current.offsetWidth * 0.44
             })
         }
 
@@ -87,11 +87,10 @@ class CustomizeChart extends React.Component {
                                         </div>
                                     )
                                 } else {
-                                    console.log("vvvvv",v)
                                     return (
-                
+
                                         <div
-                                            className={state.isChangePage ? 'chartItemWarp shake mask' : 'chartItemWarp'}
+                                            className={state.isChangePage ? 'chartItemWarp' : 'chartItemWarp'}
                                             key={i} ref={this.chartItemWarp}
                                             // onClick={() => { state.changeChartType(v, i) }}
                                             ref={this.cardContainer}
@@ -100,7 +99,7 @@ class CustomizeChart extends React.Component {
                                                 state.isChangePage &&
                                                 <img onClick={(e) => { state.deleteChartItem(v, i, e) }} className='deleteItem' src={deletePng} alt="" />
                                             } */}
-                                            <div className = "title">{v.cardNameValue}</div>
+                                            <div className="title">{v.cardNameValue}</div>
                                             <ChartItem
                                                 chartView={{
                                                     chartTypeValue: v.chartTypeValue,
@@ -111,10 +110,14 @@ class CustomizeChart extends React.Component {
                                                 }}
 
                                             />
-                                            <div className="btn">
-                                                <img src={require('../img/bianji.png').default} onClick={() => { state.changeChartType(v, i) }} />
-                                                <img src={require('../img/del.png').default} onClick={(e) => { state.deleteChartItem(v, i, e) }} />
-                                            </div>
+                                            {
+                                                state.isChangePage &&
+                                                <div className="btn">
+                                                    <img src={require('../img/del.png').default} onClick={(e) => { state.deleteChartItem(v, i, e) }} />
+                                                    <img style={{ marginRight: '10px' }} src={require('../img/bianji.png').default} onClick={() => { state.changeChartType(v, i) }} />
+                                                </div>
+                                            }
+
                                         </div>
 
                                     )

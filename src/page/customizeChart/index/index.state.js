@@ -30,6 +30,7 @@ export default new class State {
 
     //删除数据回调
     @action deleteChartItem = (item, index, e) => {
+        console.log('item111',item, index, e)
         e.stopPropagation()
         this.chartConfigList.splice(index, 1)
     }
@@ -40,6 +41,7 @@ export default new class State {
     @observable isChangeChartType = false
     //编辑卡片chart
     @action changeChartType = (item, index) => {
+        console.log("bianji",item, index)
         if (!this.modalVisible && this.isChangePage) {
             this.modalVisible = true
             this.currentItemIndex = index
