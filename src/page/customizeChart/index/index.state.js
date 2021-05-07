@@ -253,7 +253,7 @@ export default new class State {
     //选择图形形式回调
     @action chartTypeChange = (value) => {
         // console.log('value',value)
-        this.chartTypeValue = value.target.value
+        this.chartTypeValue = value
 
     }
     //图形形式

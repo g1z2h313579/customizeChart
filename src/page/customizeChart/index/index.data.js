@@ -20,14 +20,14 @@ export const chartType = {
 }
 
 export const chartSelctList = [
-    // { value: 'interval', label: '柱状图' },
+    { value: 'interval', label: '柱状图' },
     { value: 'line', label: '折线图' },
     { value: 'groupInterval', label: '分组柱状图' },
     { value: 'doubleLine', label: '双折线图' },
 ]
 
 export const chartSelectList_singleData = [
-    // { value: 'interval', label: '柱状图' },
+    { value: 'interval', label: '柱状图' },
     { value: 'line', label: '折线图' },
 ]
 

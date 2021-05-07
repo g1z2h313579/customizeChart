@@ -7,9 +7,20 @@
     float: left;
     width: 190px;
     margin-right: 20px;
-    img{
+    margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+    .chartImg{
       width: 190px;
       display: inline-block;
+    }
+    .okImg{
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    span{
+      color: #00D5FF;
     }
   }
   .chartTypeIte:nth-child(2n){
