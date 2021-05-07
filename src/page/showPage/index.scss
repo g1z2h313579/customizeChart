@@ -3,15 +3,26 @@
     height: calc( 100% - 100px );
     position: relative;
     padding: 40px;
+
     .date{
         position: absolute;
         right: 20px;
         top: 0;
     }
     .menuList{
-        width: 10%;
-        border: 1px solid salmon;
+        width: 20%;
+        // border: 1px solid salmon;
         padding: 20px;
+        .ant-tree{
+            color: rgba(255,255,255,1);
+            background: transparent;
+            .ant-tree-node-content-wrapper:hover{
+                background: #1ac7ff;
+            }
+            .ant-tree-node-selected{
+                background: #1ac7ff;
+            }
+        }
         .backToAddPage{
             border: 1px solid darkgoldenrod;
             border-radius: 4px;
@@ -35,32 +46,43 @@
         }
     }
     .viewPort{
-        width: 90%;
-        border: 1px solid teal;
+        width: 80%;
+        border: 1px solid #273D89;
+        border-radius: 4px;
+        background: rgba(15,20,51,.46);
         .viewPortWrap{
             height: 100%;
-
-            .double{
+            .common{
                 display: flex;
                 height: 100%;
-                >div{
-                    width: 50%;
-                    >div{
+                .chartContainer{
+                    border-right: 1px solid #20357A;
+                    padding: 20px;
+                    .chart{
                         height: 100%;
                     }
+                    .title{
+                        border-left: 2px solid #34C0FB;
+                        padding-left: 6px;
+                        height: 20px;
+                        color: #fff;
+                    }
+                }
+                .chartContainer:last-child{
+                    border-right: 0;
+                }
+            }
+            .double{
+                .chartContainer{
+                    width: 50%;
                 }
             }
             .tri{
-                display: flex;
-                height: 100%;
-                >div{
+                .chartContainer{
                     width: 33%;
-                    >div{
-                        height: 100%;
-                    }
                 }
             }
-
+            
         }
     }
 }

@@ -1,5 +1,18 @@
 .chartType {
+  
   .ant-radio-wrapper {
     color: #fff;
+  }
+  .chartTypeItem{
+    float: left;
+    width: 190px;
+    margin-right: 20px;
+    img{
+      width: 190px;
+      display: inline-block;
+    }
+  }
+  .chartTypeIte:nth-child(2n){
+    margin-right: 0;
   }
 }

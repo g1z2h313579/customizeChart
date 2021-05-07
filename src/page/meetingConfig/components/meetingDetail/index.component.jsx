@@ -16,7 +16,12 @@ export default (props) => {
     return (
         <div className='meetingDetail'>
             {/*<div className="title">{props.isSettingMeeting ? '会议详情' : title}</div>*/}
+<<<<<<< HEAD
             <Button className='back'  onClick = {props.toMeetingList} icon={<LeftOutlined />}>返回</Button>
+=======
+            {/* <Button className='back'  onClick = {props.toMeetingList} icon={<LeftOutlined />}>返回</Button> */}
+
+>>>>>>> dad2360d7a05ae4a08d466cbf8cfc9d556cd89d8
             <Tabs activeKey = {props.tabActiveKey || activeKey} onChange={(key) => {props.tabActiveKeyTonull();setActiveKey(key)}} className = "tabClass">
                 <TabPane tab="会议信息" key="0">
                     <MeetingInfo  isSettingMeeting = {props.isSettingMeeting} />
