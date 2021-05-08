@@ -30,5 +30,42 @@
             line-height: 38px;
             border-radius: 4px;
         }
+        .ant-tree{
+            background: transparent;
+            color: #34C0FB;
+            .ant-tree-node-content-wrapper.ant-tree-node-selected{
+                background: none;
+            }
+            .ant-tree-node-content-wrapper:hover{
+                background: none;
+            }
+            .ant-tree-list{
+                .ant-tree-list-holder-inner{
+                    border: 1px solid #134682;
+                    padding: 20px;
+                    
+                }
+                .pageConfig{
+                    display: flex;
+                    .pageLevel{
+                        width: 80px;
+                        display: inline-block;
+                    }
+                    input{
+                        background: rgba(24,139,247,0.30);;
+                        border: 0;
+                        width: 400px;
+                        margin-right: 10px;
+                    }
+                    .common{
+                        padding: 4px;
+                        border: 1px solid #34C0FB;
+                        cursor: pointer;
+                        margin-right: 10px;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
     }
 }

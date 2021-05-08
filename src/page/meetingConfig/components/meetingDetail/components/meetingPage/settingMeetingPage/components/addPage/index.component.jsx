@@ -8,8 +8,9 @@ export default (props) => {
         <div className = "pageConfig">
             <span className = "pageLevel">页面{props.currentKey}</span>
             <Input placeholder="请输入页面/标题名称" value = {props.pageName} onChange = {(e) => {props.pageNameChange(e, props.currentKey)}} />
-            <Button type="primary" onClick = {() => {props.addChildPage(props.currentKey)}}>添加子页面</Button>
-            <Button type="primary" onClick = {() => {props.toPageConfig(props.currentKey)}}>添加页面内容</Button>
+            <span className = "addChildPage common" onClick = {() => {props.addChildPage(props.currentKey)}}>添加子页面</span>
+
+            <span className = "addPageContent common" onClick = {() => {props.toPageConfig(props.currentKey)}}>添加页面内容</span>
         </div>
     )
 }
