@@ -1,33 +1,42 @@
 .settingMeetingPage{
     .seeOrSave{
+        margin-bottom: 10px;
         >span{
             display: inline-block;
             width: 80px;
-            height: 40px;
-            border: 1px solid darkorange;
+            height: 30px;
+            // border: 1px solid darkorange;
             cursor: pointer;
             text-align: center;
-            line-height: 38px;
-            border-radius: 4px;
+            line-height: 30px;
+            // border-radius: 4px;
+            background-image: linear-gradient(0deg, #188BF7 0%, #00D5FF 100%);
+            border-radius: 2px;
         }
 
         .see{
             margin-right: 10px;
         }
+        .save{
+            background-image: linear-gradient(270deg, #FF8C53 0%, #FEAB4B 100%);
+        }
         
     }
 
     .pageContent{
+        border: 1px solid #134682;
+        padding: 10px;
         .addPage{
             display: inline-block;
-            margin-top: 20px;
+            // margin-top: 20px;
             margin-bottom: 20px;
             width: 80px;
-            height: 40px;
-            border: 1px solid darkorange;
+            height: 30px;
+            // border: 1px solid darkorange;
+            background-image: linear-gradient(0deg, #188BF7 0%, #00D5FF 100%);
             cursor: pointer;
             text-align: center;
-            line-height: 38px;
+            line-height: 30px;
             border-radius: 4px;
         }
         .ant-tree{
@@ -41,9 +50,9 @@
             }
             .ant-tree-list{
                 .ant-tree-list-holder-inner{
-                    border: 1px solid #134682;
+                    // border: 1px solid #134682;
                     padding: 20px;
-                    
+                    background: rgba(32, 53, 122, 0.2)
                 }
                 .pageConfig{
                     display: flex;
