@@ -190,20 +190,25 @@
   &-panel {
     border: 0;
     &-container {
-      background: linear-gradient(134deg, #6b87e7 0%, #495ea3 100%);
+      background: #111949;
     }
   }
   &-range-arrow::after {
-    border-color: #6b87e7 #6b87e7 transparent transparent;
+    border-color: #111949 #111949 transparent transparent;
   }
   &-header {
     border-bottom: 0;
+    color: #fff;
+    button{
+      color: #fff;
+    }
   }
   &-input {
     & > input {
       color: #fff;
     }
   }
+  &-focused &-separator,
   &-clear,
   &-suffix,
   &-separator {
@@ -215,4 +220,30 @@
   &-cell-disabled::before {
     background: rgba(255, 255, 255, 0.18);
   }
+  &-body{
+    th{
+      color: #fff;
+    }
+  }
+  &-cell{
+    color: #fff;
+    &-today{
+      .ant-picker-cell-inner::before{
+        background: #1890ff;
+        z-index: -1 !important;
+      }
+    }
+  }
+}
+.ant-picker-cell-disabled .ant-picker-cell-inner{
+  color: #fff;
+}
+.ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner, .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner{
+  background: #1890ff;
+}
+.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover::before, .ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-range-hover::before, .ant-picker-cell-in-view.ant-picker-cell-range-end.ant-picker-cell-range-hover::before, .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single).ant-picker-cell-range-hover-start::before, .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single).ant-picker-cell-range-hover-end::before, .ant-picker-panel > :not(.ant-picker-date-panel) .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start::before, .ant-picker-panel > :not(.ant-picker-date-panel) .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end::before,
+.ant-picker-cell-in-view.ant-picker-cell-in-range::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single)::before, .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single)::before,
+.ant-picker-date-panel .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start .ant-picker-cell-inner::after, .ant-picker-date-panel .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end .ant-picker-cell-inner::after{
+  background: #e6f7ff6e;
 }

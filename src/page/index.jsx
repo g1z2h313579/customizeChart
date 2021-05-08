@@ -15,7 +15,7 @@ import Bread from "./components/bread/bread";
 const Entry = withRouter((props) => {
     // console.log(process.env.NODE_ENV )
     // console.log(props,'props')
-    const routerFoot = ["/meetingList", "/meetingConfig"]
+    const routerFoot = ["/meetingList", "/meetingConfig", "/meetingDetail"]
     const isShowfoot = routerFoot.includes(props.history.location.pathname);
     function showSiderbar() {
         let t = NoSiderBarList.filter(v => v === window.location.pathname)

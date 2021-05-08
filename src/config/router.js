@@ -16,7 +16,7 @@ class Routes extends React.Component {
             <Suspense fallback={<div>loading.....</div>}>
             
                     <Switch>
-                        <Redirect from='/' exact strict to='/meetingConfig' />
+                        <Redirect from='/' exact strict to='/meetingList' />
                         <Route exact strict component={showPage} path="/showPage" />
                         <Route exact strict component={customizeChart} path="/customizeChart" />
                         <Route exact strict component={meetingConfig} path="/meetingConfig" />

@@ -9,6 +9,129 @@
             font-size: 20px;
         }
     }
+    .meeting{
+        &_info{
+            padding-top: 30px;
+            color: #fff;
+            &>div{
+                margin-bottom: 20px;
+            }
+            label{
+                color: #3ea4f7;
+                width: 130px;
+                display: inline-block;
+            }
+        }
+        &_user{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .user{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                span{
+                    margin-right: 5px;
+                }
+            }
+        }
+        &_arrangement{
+            display: flex;
+            .table{
+                flex: 1;
+                .ant-table{
+                    background: transparent;
+                    &-thead{
+                        th{
+                            background: linear-gradient(180deg, #57b4ff, #24c9fc);
+                            font-size: 16px;
+                            font-weight: bold;
+                            color: #000;
+                            border-right: 1px solid #000;
+                            border-bottom: 0;
+                            &:last-child{
+                                border-right: 0;
+                            }
+                        }
+                    }
+                    &-tbody{
+                        tr{
+                            td{
+                                border-right: 1px solid #1d2260;
+                                color: #fff;
+                                border-bottom: 0;
+                                &:last-child{
+                                    border-right: 0;
+                                }
+                                &:first-child{
+                                    color: #24c9fc;
+                                }
+                            }
+                            &:nth-child(odd){
+                                td{
+                                    background: rgba(62, 70, 183, 0.15);
+                                }
+                            }
+                            &:nth-child(even){
+                                td{
+                                    background: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &_params{
+            display: flex;
+            .params{
+                flex: 1;
+                img{
+                    margin-top: 10px;
+                }
+            }
+        }
+        &_annex{
+            width: 50%;
+            ul {
+                li {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-bottom: 30px;
+                  .name {
+                    background: linear-gradient(
+                      134deg,
+                      #273d89 0%,
+                      rgba(32, 53, 122, 0.6) 100%
+                    );
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                  }
+                  .file_name {
+                    width: 40%;
+                    text-align: left;
+                    a {
+                      color: #fff;
+                      border-bottom: 1px solid;
+                    }
+                  }
+                  .btn {
+                    Button {
+                      background: transparent;
+                      border-radius: 20px;
+                      border: 1px solid #3ec1f9;
+                      color: #3ec1f9;
+                      &:first-child {
+                        margin-right: 20px;
+                      }
+                    }
+                  }
+                }
+              }
+        }
+    }
+
 }
 
 .back{
