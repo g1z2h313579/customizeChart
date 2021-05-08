@@ -27,8 +27,8 @@
         flex-wrap: wrap;
 
         .chartItemWarp{
-            width: 31%;
-            margin: 0 1%;
+            width: 44%;
+            margin: 0 3%;
             height: 350px;
             position: relative;
             // background-image: linear-gradient(134deg, rgba(39, 61, 137, 0.6) 0%, rgba(32, 53, 122, 0.6) 100%);
@@ -37,6 +37,25 @@
             margin-top: 20px;
             border: 1px solid #123E67;
             border-radius: 4px;
+
+            .title{
+                background: rgba(15,20,51,.46);
+                color: rgba(255,255,255, 1);
+                font-size: 14px;
+                font-weight: bold;
+                height: 40px;
+                padding-left: 10px;
+                line-height: 40px;
+            }
+            .btn{
+                display: flex;
+                flex-direction: row-reverse;
+                padding-right: 30px;
+                img{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
 
             .addCardBtn {
                 position: absolute;
