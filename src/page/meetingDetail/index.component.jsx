@@ -50,10 +50,10 @@ export default withRouter((props) => {
           </div>
         </div>
         <div className="meeting_params">
-          <label htmlFor="">会议参数：</label>
+          <label htmlFor="">会前参考：</label>
           <div className="params">
             <span>
-              时空裂缝就开始了地方了时间老师的法律是福克斯的福利时间浪费
+              经营情况简述：亮点投融资业务表现创历史新高险资配置大幅增长，创新险资投资渠道深化团金合作机制，团金指标业绩亮眼深圳PAFC出租率逆势上扬不足利润增长存挑战人才培养需提升创新模式需突破
             </span>
             <img
               src={require("../../assets/picc.png").default}

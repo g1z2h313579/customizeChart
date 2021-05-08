@@ -86,6 +86,9 @@
             display: flex;
             .params{
                 flex: 1;
+                span{
+                    display: inline-block;
+                }
                 img{
                     margin-top: 10px;
                 }
